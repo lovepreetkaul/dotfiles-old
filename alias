@@ -1,0 +1,4 @@
+# Alias
+
+# Getting the public ip and other details
+alias ipinfo='curl ipinfo.io'
