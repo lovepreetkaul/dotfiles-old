@@ -1,0 +1,31 @@
+# Aliases for different servers.
+# DO NOT COPY
+# Owner: Newgen Payments
+
+# PD
+alias vpnssh='ssh -p 7890 ngneteng@ngvpnserver.cloudapp.net'
+
+# QA
+alias qapay='ssh -p 7890 ngneteng@qaapp02.cloudapp.net'
+alias qaapi='ssh -p 7890 ngneteng@qaapi01.cloudapp.net'
+alias qaapp='ssh -p 7890 ngneteng@qaapp01.cloudapp.net'
+alias qafdb='ssh -p 7890 ngneteng@qafrauddb.cloudapp.net'
+alias qadb='ssh -p 7890 ngneteng@qadbmainnew.cloudapp.net'
+alias qavdb='ssh -p 7890 ngneteng@qavaultdbmain.cloudapp.net'
+alias qavkey='ssh -p 7890 ngneteng@qavaultdbkey.cloudapp.net'
+
+# Demo
+alias demopay='ssh -p 4479 newgendev@demoappdev02.cloudapp.net'
+alias demoapi='ssh -p 4479 newgendev@prodapidev.cloudapp.net'
+alias demormq='ssh -p 4479 newgendev@prodappdev.cloudapp.net'
+alias demodb='ssh -p 4479 newgendev@proddbdev.cloudapp.net'
+alias demofdb='ssh -p 4479 newgendev@frauddbdev.cloudapp.net'
+alias democv='ssh -p 4479 newgendev@prodcvdev.cloudapp.net'
+
+# Others
+alias ngpwebsite='ssh -p 7890 ngneteng@ngpwebsite.cloudapp.net'
+alias boostsales='ssh -p 3691 ngneteng@boostsales.cloudapp.net'
+alias lifeandkicking='ssh -p 7890 ngneteng@lifeandkicking.cloudapp.net'
+alias plugintesting='ssh -p 7890 ngneteng@plugintesting.cloudapp.net'
+alias vamp='ssh abhishek@192.168.1.24'
+alias ngnettesting='ssh -p 7890 ngneteng@ngnettesting.cloudapp.net'
