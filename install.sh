@@ -1,4 +1,8 @@
-# Basic Installation Script
+#!/bin/sh
+# Basic Installation Script to install dotfiles on a new system.
+
+# Stop the script if any command fails
+set -e
 
 # Backup current .zshrc and .vimrc
 if [ -f ~/.zshrc ]; then cp -vf ~/.zshrc ~/.zshrc.backup
