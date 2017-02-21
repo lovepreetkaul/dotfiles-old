@@ -1,4 +1,4 @@
 # Alias
 
 # Getting the public ip and other details
-alias ipinfo='curl ipinfo.io'
+alias ipinfo="curl -s ipinfo.io | jq '.ip'"
