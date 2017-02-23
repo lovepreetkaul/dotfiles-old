@@ -5,9 +5,9 @@
 set -e
 
 # Backup current .zshrc and .vimrc
-if [ -f ~/.zshrc ]; then cp -vf ~/.zshrc ~/.zshrc.backup
-if [ -f ~/.vimrc ]; then cp -vf ~/.vimrc ~/.vimrc.backup
-if [ -f ~/.alias ]; then cp -vf  ~/.alias ~/.alias.backup
+if [ -f ~/.zshrc ]; then mv -vf ~/.zshrc ~/.zshrc.backup
+if [ -f ~/.vimrc ]; then mv -vf ~/.vimrc ~/.vimrc.backup
+if [ -f ~/.alias ]; then mv -vf  ~/.alias ~/.alias.backup
 
 # Symlink the zshrc and vimrc files
 ln -sv "~/dotfiles/zshrc" ~/.zshrc
