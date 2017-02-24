@@ -13,5 +13,3 @@ if [ -f ~/.alias ]; then mv -vf  ~/.alias ~/.alias.backup
 ln -sv "~/dotfiles/zshrc" ~/.zshrc
 ln -sv "~/dotfiles/vimrc" ~/.vimrc
 ln -sv "~/dotfiles/alias" ~/.alias
-
-source ~/.zshrc
