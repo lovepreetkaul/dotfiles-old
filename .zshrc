@@ -84,6 +84,9 @@ antigen bundle mercurial
 #antigen bundle lein
 antigen bundle command-not-found
 
+# Zsh completions
+antigen bundle zsh-users/zsh-completions
+
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
