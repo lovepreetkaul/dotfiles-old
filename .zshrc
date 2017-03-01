@@ -53,12 +53,6 @@ fi
 
 unset GREP_OPTIONS
 
-# Sourcing aliases
-if [ -f ~/.aliases_spec ]
-    then
-    source ~/.aliases_spec
-fi
-
 if [ -f ~/.alias ]
     then
     source ~/.alias
