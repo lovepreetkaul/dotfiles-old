@@ -86,6 +86,6 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Load the theme.
 antigen theme lovepreetkaul/zsh-themes themes/senti.zsh-theme
-
+#antigen theme steeef
 # Tell antigen that you're done.
 antigen apply
