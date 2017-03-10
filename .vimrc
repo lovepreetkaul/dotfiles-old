@@ -151,6 +151,9 @@ set nofoldenable
 set foldmethod=indent
 set foldlevel=20
 
+" Toggling paste mode
+set pastetoggle=<F2>
+
 "
 " Global Bindings
 "
