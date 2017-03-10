@@ -3,3 +3,7 @@
 # Wordcount
 alias wcl="wc -l"
 alias wcw="wc -w"
+
+# Functions
+function date_u2h { date --date="@$1"; }
+
