@@ -5,6 +5,10 @@
 # Prerequisites:
 # 1. jq commandline parser
 
+# Exit if anything fails
+set -e
+
+output=$(curl -s ipinfo.io)
 echo "Internal : "$(hostname -I)
-echo "External : "$(curl -s ipinfo.io | jq '.ip')
-echo "ISP      : "$(curl -s ipinfo.io | jq '.org')
+echo "External : "$( echo $output | jq '.ip' | sed 's/^"\(.*\)"$/\1/')
+echo "ISP      : "$( echo $output | jq '.org' | sed 's/^"\(.*\)"$/\1/')
