@@ -58,8 +58,8 @@ if [ -f ~/.alias ]
     source ~/.alias
 fi
 
-# Adding .local/bin to $PATH
-export PATH=~/.local/bin:$PATH
+# Adding .local/bin and bin to $PATH
+export PATH=~/.local/bin:~/bin:$PATH
 
 #
 # Antigen 

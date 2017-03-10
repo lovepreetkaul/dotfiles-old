@@ -1,8 +1,5 @@
 # Alias
 
-# Getting the public ip and other details
-alias ipinfo="curl -s ipinfo.io | jq '.ip'"
-
 # Wordcount
 alias wcl="wc -l"
 alias wcw="wc -w"

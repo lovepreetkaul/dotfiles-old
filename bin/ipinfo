@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Script to show public and private ip in a proper format. Only tested for 
+# Linux Systems Ubuntu and CentOS.
+# Prerequisites:
+# 1. jq commandline parser
+
+echo "Internal : "$(hostname -I)
+echo "External : "$(curl -s ipinfo.io | jq '.ip')
+echo "ISP      : "$(curl -s ipinfo.io | jq '.org')
