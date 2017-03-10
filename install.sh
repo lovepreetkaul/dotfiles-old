@@ -5,7 +5,7 @@
 set -e
 
 # Backup current .zshrc and .vimrc
-if [ -f ~/.zshrc ]; then mv -vf ~/.zshrc ~/.zshrc.backup
+if [ -f ~/.zshrc ]; then mv -vf ~/.zshrc ~/.zshrc.backup.$(date)
 if [ -f ~/.vimrc ]; then mv -vf ~/.vimrc ~/.vimrc.backup
 if [ -f ~/.alias ]; then mv -vf  ~/.alias ~/.alias.backup
 

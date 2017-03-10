@@ -5,5 +5,11 @@ alias wcl="wc -l"
 alias wcw="wc -w"
 
 # Functions
+
+# Convert unix timestamp to human readable date
 function date_u2h { date --date="@$1"; }
 
+# Get current timestamp
+timestamp() {
+      date +"%s"
+}
