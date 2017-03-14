@@ -1,9 +1,10 @@
 " Author:        Lovepreet Singh
-" Description:   This is the personal .vimrc file of Lovepreet Singh.
+" Description:   This is my personal .vimrc file.
 "
 " As the help says 'Make vim behave in a more useful way'
 " **Must be first uncommented line**
 set nocompatible
+
 
 "
 " Custom Functions
@@ -251,4 +252,21 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 " Use 2 spaces when in Lua & Ruby
 autocmd FileType lua,ruby set tabstop=2
 autocmd FileType lua,ruby set shiftwidth=2
+
+"
+" Vim-plug Plugin Manager
+"
+
+" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+call plug#begin('~/.vim/plugged')
+
+" Make sure you use single quotes
+Plug 'vim-syntastic/syntastic'
+
+" Initialize plugin system
+call plug#end()
+
+"
+" Custom Plugin Settings
+"
 
