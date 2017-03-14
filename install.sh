@@ -8,12 +8,4 @@ set -e
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# Backup current .zshrc and .vimrc
-if [ -f ~/.zshrc ]; then mv -vf ~/.zshrc ~/.zshrc.backup.$(date)
-if [ -f ~/.vimrc ]; then mv -vf ~/.vimrc ~/.vimrc.backup
-if [ -f ~/.alias ]; then mv -vf  ~/.alias ~/.alias.backup
-
-# Symlink the zshrc and vimrc files
-ln -sv "~/dotfiles/zshrc" ~/.zshrc
-ln -sv "~/dotfiles/vimrc" ~/.vimrc
-ln -sv "~/dotfiles/alias" ~/.alias
+# Make sure to run :PlugUpdate once the Vim-Plug installation completes
