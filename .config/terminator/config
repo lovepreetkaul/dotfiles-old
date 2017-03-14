@@ -1,5 +1,6 @@
 [global_config]
   title_transmit_bg_color = "#207185"
+  window_state = maximise
 [keybindings]
 [layouts]
   [[default]]
@@ -12,3 +13,7 @@
 [plugins]
 [profiles]
   [[default]]
+    background_color = "#002b36"
+    background_image = None
+    foreground_color = "#839496"
+    use_system_font = False
