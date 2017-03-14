@@ -4,6 +4,10 @@
 # Stop the script if any command fails
 set -e
 
+# Install Vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 # Backup current .zshrc and .vimrc
 if [ -f ~/.zshrc ]; then mv -vf ~/.zshrc ~/.zshrc.backup.$(date)
 if [ -f ~/.vimrc ]; then mv -vf ~/.vimrc ~/.vimrc.backup
