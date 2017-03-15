@@ -1,5 +1,9 @@
 [global_config]
-  title_transmit_bg_color = "#207185"
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, Logger, LaunchpadBugURLHandler
+  handle_size = 1
+  title_inactive_bg_color = "#222222"
+  title_inactive_fg_color = "#fbfbfb"
+  title_transmit_bg_color = "#252525"
   window_state = maximise
 [keybindings]
 [layouts]
@@ -15,5 +19,7 @@
   [[default]]
     background_color = "#002b36"
     background_image = None
+    font = Roboto Mono for Powerline 10
     foreground_color = "#839496"
+    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
     use_system_font = False
