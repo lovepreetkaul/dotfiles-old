@@ -17,7 +17,7 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#002b36"
+    background_color = "#1d1f21"
     background_image = None
     font = Roboto Mono for Powerline 10
     foreground_color = "#839496"
