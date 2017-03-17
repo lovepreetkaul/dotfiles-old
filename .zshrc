@@ -15,30 +15,6 @@ if [[ $TERM == 'rxvt-unicode' ]] ; then
     export TERM='xterm'
 fi
 
-#
-# OS Detection
-#
-
-UNAME=`uname`
-
-# Fallback info
-CURRENT_OS='Linux'
-DISTRO=''
-
-if [[ $UNAME == 'Darwin' ]]; then
-    CURRENT_OS='OS X'
-else
-    # Must be Linux, determine distro
-    if [[ -f /etc/redhat-release ]]; then
-        # CentOS or Redhat?
-        if grep -q "CentOS" /etc/redhat-release; then
-            DISTRO='CentOS'
-        else
-            DISTRO='RHEL'
-        fi
-    fi
-fi
-
 # Use zsh-completions if it exists
 if [[ -d "/usr/local/share/zsh-completions" ]]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
