@@ -64,6 +64,9 @@ set number
 " Show the column/row
 set ruler
 
+" Set mouse to not select line numbers
+set mouse=a
+
 " Highlight only the lines that go past 80 characters
 highlight ColorColumn ctermbg=green guibg=green
 call matchadd('ColorColumn', '\%82v', 100)
