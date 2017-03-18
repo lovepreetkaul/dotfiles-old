@@ -33,20 +33,32 @@ if [[ $(echo $INFO |  grep -q "Ubuntu" ) -eq 0 ]]; then
     DISTRO="Ubuntu"
 fi
 
-echo $DISTRO
-
-
-
-
 
 # Check if zsh is installed.
+INSTALL_ZSH=1
 CHECK_ZSH_INSTALLED=$(grep /zsh$ /etc/shells | wc -l)
-  if [ ! $CHECK_ZSH_INSTALLED -ge 1 ]; then
-    printf "Zsh is not installed! Please install zsh first!\n"
-    exit
+  if [  $CHECK_ZSH_INSTALLED -ge 1 ]; then # Add the ! back after testing
+    printf "Zsh is not installed! Do you want to install zsh?[y/N]!\n"
+    read decision
+    case "$decision" in
+       [yY][eE][sS]|[yY])
+			INSTALL_ZSH=0
+			;;
+		*)
+			INSTALL_ZSH=1
+			exit 1
+			;;
+    esac
   fi
 unset CHECK_ZSH_INSTALLED
 
+# Installation of ZSH
+
+if [[ $INSTALL_ZSH -eq 0 ]]; then
+	if [[ $DISTRO -eq "Ubuntu" ]]; then
+		sudo apt install zsh -y
+	fi
+fi
 
 # Install Vim-plug if not installed
 FILE=~/.vim/autoload/plug.vim
