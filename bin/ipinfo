@@ -8,6 +8,7 @@
 # Exit if anything fails
 set -e
 
+
 ipinfo=$(curl -s ipinfo.io)
 
 # Check if commandline arguments are provided

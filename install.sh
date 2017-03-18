@@ -1,34 +1,41 @@
 #!/bin/bash
 # Basic Installation Script to install dotfiles on a new system.
-# Zsh check taken from Robby Russell OMZ install script
+# 
 # Stop the script if any command fails
 set -e
 
 #
 # OS Detection
 #
-
-UNAME=`uname`
-
-# Fallback info
 CURRENT_OS='Linux'
 DISTRO=''
+INFO=$(cat /etc/[A-Za-z]*[_-][rv]e[lr]*)
 
-if [[ $UNAME == 'Darwin' ]]; then
-    CURRENT_OS='OS X'
-else
-    # Must be Linux, determine distro
-    if [[ -f /etc/redhat-release ]]; then
-        # CentOS or Redhat?
-        if grep -q "CentOS" /etc/redhat-release; then
-            DISTRO='CentOS'
-        else
-            DISTRO='RHEL'
-        fi
-    fi
+# Assuming Linux, determine distro
+# 
+if [[ $(echo $INFO | grep -q "CentOS") -eq 0 ]]; then
+    DISTRO="CentOS"
+fi
+
+if [[ $(echo $INFO | grep -q "Fedora") -eq 0 ]]; then
+    DISTRO="Fedora"
+fi
+
+if [[ $(echo $INFO | grep -q "RHEL" ) -eq 0 ]]; then
+    DISTRO="RHEL"
+fi
+
+if [[ $(echo $INFO | grep -q "Debian" ) -eq 0 ]]; then
+    DISTRO="Debian"
+fi
+
+if [[ $(echo $INFO |  grep -q "Ubuntu" ) -eq 0 ]]; then
+    DISTRO="Ubuntu"
 fi
 
 echo $DISTRO
+
+
 
 
 
