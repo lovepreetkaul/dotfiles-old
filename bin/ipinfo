@@ -8,7 +8,7 @@
 # Exit if anything fails
 set -e
 
-output=$(curl -s ipinfo.io)
+ipinfo=$(curl -s ipinfo.io)
 echo "Internal : "$(hostname -I)
-echo "External : "$( echo $output | jq '.ip' | sed 's/^"\(.*\)"$/\1/')
-echo "ISP      : "$( echo $output | jq '.org' | sed 's/^"\(.*\)"$/\1/')
+echo "External : "$( echo $ipinfo | jq '.ip' | sed 's/^"\(.*\)"$/\1/')
+echo "ISP      : "$( echo $ipinfo | jq '.org' | sed 's/^"\(.*\)"$/\1/')

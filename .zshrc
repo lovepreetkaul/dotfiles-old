@@ -20,13 +20,6 @@ if [[ -d "/usr/local/share/zsh-completions" ]]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
-if [[ $CURRENT_OS == 'Linux' ]]; then
-    # None so far...
-    if [[ $DISTRO == 'CentOS' ]]; then
-        # None so far
-    fi
-fi
-
 unset GREP_OPTIONS
 
 if [ -f ~/.alias ]

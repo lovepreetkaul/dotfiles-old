@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Script to find out details of an ip. Only tested for 
+# Linux Systems Ubuntu and CentOS.
+# Prerequisites
+# 1. jq commandline parser
+#
+# Author: Lovepreet Singh
+# Date: 18 March 2017
+
+#Exit if anything fails
+set -e
+
+# Check if commandline arguments are provided
+if [ $# -eq 0 ]; then
+    echo "No arguments provided"
+#    exit 1
+fi
+
+# Formulate request url with/without commandline arguments
+ipapi=$(curl -s ip-api.com/json)
+echo "Status   : "$( echo $ipapi | jq '.status' | sed 's/^"\(.*\)"$/\1/')
+echo "IP       : "$( echo $ipapi | jq '.query' | sed 's/^"\(.*\)"$/\1/')
+echo "ISP      : "$( echo $ipapi | jq '.as' | sed 's/^"\(.*\)"$/\1/')
+echo "City     : "$( echo $ipapi | jq '.city' | sed 's/^"\(.*\)"$/\1/')
+echo "Country  : "$( echo $ipapi | jq '.country' | sed 's/^"\(.*\)"$/\1/')
+
