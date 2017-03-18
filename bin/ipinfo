@@ -9,13 +9,15 @@
 set -e
 
 
-ipinfo=$(curl -s ipinfo.io)
 
 # Check if commandline arguments are provided
-#if [ $# -eq 1 ]; then
-#        ipinfo=$ipinfo"/"$1
-#        #    exit 1
-#fi
+if [ $# -eq 1 ]; then
+    ipinfo=$(curl -s ipinfo.io/$1)
+#    echo $ipapi
+else
+	ipinfo=$(curl -s ipinfo.io)
+#    echo $ipapi
+fi
 
 echo "Internal : "$(hostname -I)
 echo "External : "$( echo $ipinfo | jq '.ip' | sed 's/^"\(.*\)"$/\1/')
