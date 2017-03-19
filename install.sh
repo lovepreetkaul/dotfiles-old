@@ -37,7 +37,7 @@ fi
 # Check if zsh is installed.
 INSTALL_ZSH=1
 CHECK_ZSH_INSTALLED=$(grep /zsh$ /etc/shells | wc -l)
-  if [  $CHECK_ZSH_INSTALLED -ge 1 ]; then # Add the ! back after testing
+  if [ ! $CHECK_ZSH_INSTALLED -ge 1 ]; then # Add the !
     printf "Zsh is not installed! Do you want to install zsh?[y/N]!\n"
     read decision
     case "$decision" in
@@ -59,6 +59,13 @@ if [[ $INSTALL_ZSH -eq 0 ]]; then
 		sudo apt install zsh -y
 	fi
 fi
+
+# Installation of jq json parser
+
+if [[ $DISTRO -eq "Ubuntu" ]]; then
+    sudo apt install jq -y
+fi
+
 
 # Install Vim-plug if not installed
 FILE=~/.vim/autoload/plug.vim
