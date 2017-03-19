@@ -33,22 +33,25 @@ if [[ $(echo $INFO |  grep -q "Ubuntu" ) -eq 0 ]]; then
     DISTRO="Ubuntu"
 fi
 
+confirm() {
+    # call with a prompt string or use a default
+    read -r -p "${1:-Do you wish to proceed?[y/N]} " response
+    case "$decision" in
+       [yY][eE][sS]|[yY])
+		    return 0
+			;;
+		*)
+			return 1
+			;;
+    esac
+}
 
 # Check if zsh is installed.
 INSTALL_ZSH=1
 CHECK_ZSH_INSTALLED=$(grep /zsh$ /etc/shells | wc -l)
-  if [ ! $CHECK_ZSH_INSTALLED -ge 1 ]; then # Add the !
-    printf "Zsh is not installed! Do you want to install zsh?[y/N]!\n"
-    read decision
-    case "$decision" in
-       [yY][eE][sS]|[yY])
-			INSTALL_ZSH=0
-			;;
-		*)
-			INSTALL_ZSH=1
-			exit 1
-			;;
-    esac
+  if [ $CHECK_ZSH_INSTALLED -ge 1 ]; then # Add the !
+      echo $(confirm "Zsh is not installed! Do you want to install zsh?[y/N]!") 
+    sudo apt install zsh -y
   fi
 unset CHECK_ZSH_INSTALLED
 
@@ -61,11 +64,15 @@ if [[ $INSTALL_ZSH -eq 0 ]]; then
 fi
 
 # Installation of jq json parser
-
-if [[ $DISTRO -eq "Ubuntu" ]]; then
-    sudo apt install jq -y
+if [[ ! -f "/usr/bin/jq" ]]; then
+    if [[ $DISTRO -eq "Ubuntu" ]]; then
+        sudo apt install jq -y
+    else
+        # jq is present in the repo.
+        chmod +x ./jq
+        sudo cp jq /usr/bin
+    fi
 fi
-
 
 # Install Vim-plug if not installed
 FILE=~/.vim/autoload/plug.vim
