@@ -1,7 +1,7 @@
 [global_config]
-  always_on_top = True
   enabled_plugins = InactivityWatch, ActivityWatch, TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, Logger, LaunchpadBugURLHandler
   handle_size = 1
+  scroll_tabbar = True
   title_font = Roboto Mono Medium for Powerline Medium 9
   title_hide_sizetext = True
   title_inactive_bg_color = "#222222"
