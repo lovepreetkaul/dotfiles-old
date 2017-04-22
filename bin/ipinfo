@@ -8,17 +8,35 @@
 # Exit if anything fails
 set -e
 
+all=false;
 
+while getopts ":ha" option; do
+  case $option in
+    h) echo "usage: $0 [-h] [-a] [-l] file ..."; exit ;;
+    a) all=true; shift ;;
+    ?) echo "error: option -$OPTARG is not implemented"; exit ;;
+  esac
+done
 
 # Check if commandline arguments are provided
-if [ $# -eq 1 ]; then
+if [[ "$all" == false && $# -eq 1 ]];then
+    all=true
     ipinfo=$(curl -s ipinfo.io/$1)
-#    echo $ipapi
+elif [ $# -eq 2 ]; then
+    ipinfo=$(curl -s ipinfo.io/$2)
 else
 	ipinfo=$(curl -s ipinfo.io)
-#    echo $ipapi
 fi
 
 echo "Internal : "$(hostname -I)
 echo "External : "$( echo $ipinfo | jq '.ip' | sed 's/^"\(.*\)"$/\1/')
 echo "ISP      : "$( echo $ipinfo | jq '.org' | sed 's/^"\(.*\)"$/\1/')
+
+if [[ "$all" == true ]]; then
+    echo "Hostname : "$( echo $ipinfo | jq '.hostname' | sed 's/^"\(.*\)"$/\1/')
+    echo "City     : "$( echo $ipinfo | jq '.city' | sed 's/^"\(.*\)"$/\1/')
+    echo "Region   : "$( echo $ipinfo | jq '.region' | sed 's/^"\(.*\)"$/\1/')
+    echo "Country  : "$( echo $ipinfo | jq '.country' | sed 's/^"\(.*\)"$/\1/')
+    echo "Location : "$( echo $ipinfo | jq '.loc' | sed 's/^"\(.*\)"$/\1/')
+    echo "Postal   : "$( echo $ipinfo | jq '.postal' | sed 's/^"\(.*\)"$/\1/')
+fi
