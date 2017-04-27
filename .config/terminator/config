@@ -24,10 +24,28 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#fdf6e3"
+    background_color = "#002b36"
     background_darkness = 0.93
     background_image = None
     font = Roboto Mono for Powerline 10
-    foreground_color = "#657b83"
+    foreground_color = "#839496"
     palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#859900:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#586e75"
+    use_system_font = False
+  [[molokai]]
+    background_color = "#121212"
+    background_image = None
+    cursor_color = "#c20257"
+    font = Roboto Mono for Powerline 10
+    foreground_color = "#ffffff"
+    palette = "#181915:#7a0137:#498702:#c5bb63:#3465a4:#75507b:#4194b0:#d3d7cf:#45473c:#e00265:#6dca04:#e6db74:#1d71ca:#af5fff:#5cd1f8:#ffffff"
+    scrollback_infinite = True
+    show_titlebar = False
+    use_system_font = False
+  [[monokai]]
+    allow_bold = False
+    background_color = "#272822"
+    background_image = None
+    font = Roboto Mono for Powerline 10
+    foreground_color = "#ffffff"
+    palette = "#000000:#f92672:#6cc72c:#fe9720:#5f91ef:#9358fe:#36af90:#8c8c8c:#4c4c4c:#ff80f4:#a7e22e:#ffee99:#5fd9ef:#ae82fe:#66efd5:#c7cece"
     use_system_font = False
