@@ -23,7 +23,7 @@
       type = Window
 [plugins]
 [profiles]
-  [[default]]
+  [[default_old]]
     background_color = "#002b36"
     background_darkness = 0.93
     background_image = None
@@ -41,7 +41,7 @@
     scrollback_infinite = True
     show_titlebar = False
     use_system_font = False
-  [[monokai]]
+  [[default]]
     allow_bold = False
     background_color = "#272822"
     background_image = None
