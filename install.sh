@@ -70,7 +70,7 @@ if [[ ! -f "/usr/bin/jq" ]]; then
     else
         # jq is present in the repo.
         chmod +x ./jq
-        sudo cp jq /usr/bin
+        sudo cp jq /usr/bin/
     fi
 fi
 
