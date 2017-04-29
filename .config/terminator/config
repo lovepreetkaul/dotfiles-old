@@ -22,36 +22,49 @@
     [[[window0]]]
       parent = ""
       type = Window
-  [[default2]]
+  [[htopped]]
     [[[child0]]]
       fullscreen = False
-      last_active_term = 0c5e8356-0c5d-4128-bb09-394cf4c9fb6d
+      last_active_term = bf021b4a-e2e3-4739-9105-cd81d7b55d93
       last_active_window = True
       maximised = True
       order = 0
       parent = ""
       position = 0:24
       size = 1366, 709
-      title = lovepreet@workstation: ~
+      title = HTOPPED
       type = Window
     [[[child1]]]
       order = 0
       parent = child0
-      position = 682
-      ratio = 0.499633967789
+      position = 882
+      ratio = 0.646046852123
       type = HPaned
-    [[[terminal2]]]
+    [[[child2]]]
       order = 0
       parent = child1
+      position = 354
+      ratio = 0.5
+      type = VPaned
+    [[[terminal3]]]
+      order = 0
+      parent = child2
       profile = default
       type = Terminal
-      uuid = 0c5e8356-0c5d-4128-bb09-394cf4c9fb6d
-    [[[terminal3]]]
+      uuid = bf021b4a-e2e3-4739-9105-cd81d7b55d93
+    [[[terminal4]]]
+      order = 1
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = 95219288-4078-43a5-95a0-05a197c06223
+    [[[terminal5]]]
+      command = htop zsh -l
       order = 1
       parent = child1
       profile = default
       type = Terminal
-      uuid = 5e04e286-91f6-4b7d-9b9f-6fdc22b8af05
+      uuid = bd61b879-8130-46d2-84dd-1c55275ee909
   [[logs]]
     [[[child0]]]
       fullscreen = False
@@ -62,7 +75,7 @@
       parent = ""
       position = 0:24
       size = 1366, 709
-      title = lovepreet@workstation: ~
+      title = LOG MONITORING
       type = Window
     [[[child1]]]
       order = 0
