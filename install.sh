@@ -51,16 +51,7 @@ INSTALL_ZSH=1
 CHECK_ZSH_INSTALLED=$(grep /zsh$ /etc/shells | wc -l)
   if [ $CHECK_ZSH_INSTALLED -ge 1 ]; then # Add the !
       echo $(confirm "Zsh is not installed! Do you want to install zsh?[y/N]!") 
-    sudo apt install zsh -y
   fi
-unset CHECK_ZSH_INSTALLED
-
-# Installation of ZSH
-
-if [[ $INSTALL_ZSH -eq 0 ]]; then
-	if [[ $DISTRO -eq "Ubuntu" ]]; then
-		sudo apt install zsh -y
-	fi
 fi
 
 # Installation of jq json parser
