@@ -28,15 +28,22 @@ else
 	ipinfo=$(curl -s ipinfo.io)
 fi
 
-echo "Internal : "$(hostname -I)
-echo "External : "$( echo $ipinfo | jq '.ip' | sed 's/^"\(.*\)"$/\1/')
-echo "ISP      : "$( echo $ipinfo | jq '.org' | sed 's/^"\(.*\)"$/\1/')
+hostnameI=$(hostname -I)
+hostArr=($hostnameI)
+
+ipv4=${hostArr[0]}
+ipv6=${hostArr[1]}
+
+echo "Private(IPv4) : "$ipv4
+echo "Private(IPv6) : "$ipv6
+echo "Public        : "$( echo $ipinfo | jq '.ip' | sed 's/^"\(.*\)"$/\1/')
+echo "ISP           : "$( echo $ipinfo | jq '.org' | sed 's/^"\(.*\)"$/\1/')
 
 if [[ "$all" == true ]]; then
-    echo "Hostname : "$( echo $ipinfo | jq '.hostname' | sed 's/^"\(.*\)"$/\1/')
-    echo "City     : "$( echo $ipinfo | jq '.city' | sed 's/^"\(.*\)"$/\1/')
-    echo "Region   : "$( echo $ipinfo | jq '.region' | sed 's/^"\(.*\)"$/\1/')
-    echo "Country  : "$( echo $ipinfo | jq '.country' | sed 's/^"\(.*\)"$/\1/')
-    echo "Location : "$( echo $ipinfo | jq '.loc' | sed 's/^"\(.*\)"$/\1/')
-    echo "Postal   : "$( echo $ipinfo | jq '.postal' | sed 's/^"\(.*\)"$/\1/')
+    echo "Hostname      : "$( echo $ipinfo | jq '.hostname' | sed 's/^"\(.*\)"$/\1/')
+    echo "City          : "$( echo $ipinfo | jq '.city' | sed 's/^"\(.*\)"$/\1/')
+    echo "Region        : "$( echo $ipinfo | jq '.region' | sed 's/^"\(.*\)"$/\1/')
+    echo "Country       : "$( echo $ipinfo | jq '.country' | sed 's/^"\(.*\)"$/\1/')
+    echo "Location      : "$( echo $ipinfo | jq '.loc' | sed 's/^"\(.*\)"$/\1/')
+    echo "Postal        : "$( echo $ipinfo | jq '.postal' | sed 's/^"\(.*\)"$/\1/')
 fi
