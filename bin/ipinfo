@@ -34,12 +34,16 @@ hostArr=($hostnameI)
 ipv4=${hostArr[0]}
 ipv6=${hostArr[1]}
 
-echo "Private(IPv4) : "$ipv4
-echo "Private(IPv6) : "$ipv6
-echo "Public        : "$( echo $ipinfo | jq '.ip' | sed 's/^"\(.*\)"$/\1/')
-echo "ISP           : "$( echo $ipinfo | jq '.org' | sed 's/^"\(.*\)"$/\1/')
+if [[ "$all" == false ]];then
+    echo "Private(IPv4) : "$ipv4
+    echo "Public        : "$( echo $ipinfo | jq '.ip' | sed 's/^"\(.*\)"$/\1/')
+    echo "ISP           : "$( echo $ipinfo | jq '.org' | sed 's/^"\(.*\)"$/\1/')
 
-if [[ "$all" == true ]]; then
+else
+    echo "Private(IPv4) : "$ipv4
+    echo "Private(IPv6) : "$ipv6
+    echo "Public        : "$( echo $ipinfo | jq '.ip' | sed 's/^"\(.*\)"$/\1/')
+    echo "ISP           : "$( echo $ipinfo | jq '.org' | sed 's/^"\(.*\)"$/\1/')
     echo "Hostname      : "$( echo $ipinfo | jq '.hostname' | sed 's/^"\(.*\)"$/\1/')
     echo "City          : "$( echo $ipinfo | jq '.city' | sed 's/^"\(.*\)"$/\1/')
     echo "Region        : "$( echo $ipinfo | jq '.region' | sed 's/^"\(.*\)"$/\1/')
