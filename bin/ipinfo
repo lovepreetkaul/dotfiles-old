@@ -9,10 +9,11 @@
 set -e
 
 all=false;
+showInternal=true;
 
 while getopts ":ha" option; do
   case $option in
-    h) echo "usage: $0 [-h] [-a] [-l] file ..."; exit ;;
+    h) echo "usage: $0 [-h] [-a] ip"; exit ;;
     a) all=true; shift ;;
     ?) echo "error: option -$OPTARG is not implemented"; exit ;;
   esac
@@ -21,9 +22,11 @@ done
 # Check if commandline arguments are provided
 if [[ "$all" == false && $# -eq 1 ]];then
     all=true
+    showInternal=false
     ipinfo=$(curl -s ipinfo.io/$1)
-elif [ $# -eq 2 ]; then
-    ipinfo=$(curl -s ipinfo.io/$2)
+elif [[ "$all" == true &&  $# -eq 1 ]]; then
+    ipinfo=$(curl -s ipinfo.io/$1)
+    showInternal=false
 else
 	ipinfo=$(curl -s ipinfo.io)
 fi
@@ -40,8 +43,10 @@ if [[ "$all" == false ]];then
     echo "ISP           : "$( echo $ipinfo | jq '.org' | sed 's/^"\(.*\)"$/\1/')
 
 else
-    echo "Private(IPv4) : "$ipv4
-    echo "Private(IPv6) : "$ipv6
+    if [[ "$showInternal" == true ]];then
+        echo "Private(IPv4) : "$ipv4
+        echo "Private(IPv6) : "$ipv6
+    fi
     echo "Public        : "$( echo $ipinfo | jq '.ip' | sed 's/^"\(.*\)"$/\1/')
     echo "ISP           : "$( echo $ipinfo | jq '.org' | sed 's/^"\(.*\)"$/\1/')
     echo "Hostname      : "$( echo $ipinfo | jq '.hostname' | sed 's/^"\(.*\)"$/\1/')
