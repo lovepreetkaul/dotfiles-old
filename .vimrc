@@ -5,8 +5,6 @@
 " **Must be first uncommented line**
 set nocompatible
 
-
-
 "
 " Custom Functions
 "
@@ -121,8 +119,6 @@ set completeopt+=longest,menuone
 
 " Setting omnifunc for YCM
 set omnifunc=syntaxcomplete#Complete
-
-
 
 " Turn on persistent undo
 " Thanks, Mr Wadsten: github.com/mikewadsten/dotfiles/
@@ -289,7 +285,6 @@ let g:airline_powerline_fonts=1
 
 " Solarized Theme
 let g:solarized_termcolors=256
-
 syntax enable
 set background=dark
 colorscheme solarized
