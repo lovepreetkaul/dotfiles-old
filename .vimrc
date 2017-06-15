@@ -6,6 +6,7 @@
 set nocompatible
 
 
+
 "
 " Custom Functions
 "
@@ -116,7 +117,12 @@ set expandtab
 set hidden
 
 " Better completion
-set completeopt+=longest,menuone,preview
+set completeopt+=longest,menuone
+
+" Setting omnifunc for YCM
+set omnifunc=syntaxcomplete#Complete
+
+
 
 " Turn on persistent undo
 " Thanks, Mr Wadsten: github.com/mikewadsten/dotfiles/
@@ -266,6 +272,9 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
+Plug 'valloric/youcompleteme'
+Plug 'tpope/vim-surround'
+Plug 'altercation/vim-colors-solarized'
 " Initialize plugin system
 call plug#end()
 
@@ -273,7 +282,14 @@ call plug#end()
 " Custom Plugin Settings
 "
 
-"Airline
+" Airline
 set encoding=utf-8
 set laststatus=2
 let g:airline_powerline_fonts=1
+
+" Solarized Theme
+let g:solarized_termcolors=256
+
+syntax enable
+set background=dark
+colorscheme solarized
