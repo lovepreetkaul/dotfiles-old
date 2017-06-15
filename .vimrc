@@ -265,7 +265,7 @@ call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 Plug 'vim-syntastic/syntastic'
-
+Plug 'vim-airline/vim-airline'
 " Initialize plugin system
 call plug#end()
 
@@ -273,3 +273,7 @@ call plug#end()
 " Custom Plugin Settings
 "
 
+"Airline
+set encoding=utf-8
+set laststatus=2
+let g:airline_powerline_fonts=1
