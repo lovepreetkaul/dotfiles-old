@@ -22,6 +22,60 @@
     [[[window0]]]
       parent = ""
       type = Window
+  [[New Layout]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = b5150bb7-8c46-40a6-9fcb-6df7165da9df
+      last_active_window = True
+      maximised = True
+      order = 0
+      parent = ""
+      position = 0:24
+      size = 1366, 709
+      title = LOG MONITORING
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 668
+      ratio = 0.489385065886
+      type = HPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 354
+      ratio = 0.5
+      type = VPaned
+    [[[child5]]]
+      order = 1
+      parent = child1
+      position = 354
+      ratio = 0.5
+      type = VPaned
+    [[[terminal3]]]
+      order = 0
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = 5fc152d6-8659-4d45-a304-545113c2cd5e
+    [[[terminal4]]]
+      order = 1
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = b5150bb7-8c46-40a6-9fcb-6df7165da9df
+    [[[terminal6]]]
+      order = 0
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = 6d0b53f6-ce15-4bd1-8de6-e4c34cff46b7
+    [[[terminal7]]]
+      order = 1
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = 36d0a023-4230-474b-93a9-9934cdfa128f
   [[htopped]]
     [[[child0]]]
       fullscreen = False
@@ -107,6 +161,84 @@
       profile = default
       type = Terminal
       uuid = 36d0a023-4230-474b-93a9-9934cdfa128f
+  [[zes]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 36d0a023-4230-474b-93a9-9934cdfa128f
+      last_active_window = True
+      maximised = True
+      order = 0
+      parent = ""
+      position = 0:24
+      size = 1366, 709
+      title = LOG MONITORING
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 434
+      ratio = 0.318081991215
+      type = HPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 354
+      ratio = 0.5
+      type = VPaned
+    [[[child5]]]
+      order = 1
+      parent = child1
+      position = 464
+      ratio = 0.498925886144
+      type = HPaned
+    [[[child6]]]
+      order = 0
+      parent = child5
+      position = 354
+      ratio = 0.5
+      type = VPaned
+    [[[child9]]]
+      order = 1
+      parent = child5
+      position = 354
+      ratio = 0.5
+      type = VPaned
+    [[[terminal10]]]
+      order = 0
+      parent = child9
+      profile = default
+      type = Terminal
+      uuid = 62bd8f8b-807d-4bb6-9ec0-48b65ab531fa
+    [[[terminal11]]]
+      order = 1
+      parent = child9
+      profile = default
+      type = Terminal
+      uuid = 3f6654b7-a952-40ec-8e6b-bd3f35e2d721
+    [[[terminal3]]]
+      order = 0
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = 36d0a023-4230-474b-93a9-9934cdfa128f
+    [[[terminal4]]]
+      order = 1
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = e8536a38-65e4-4147-bb0d-b044a930349b
+    [[[terminal7]]]
+      order = 0
+      parent = child6
+      profile = default
+      type = Terminal
+      uuid = 1c3867b3-163e-484e-877c-8694bdabb3a3
+    [[[terminal8]]]
+      order = 1
+      parent = child6
+      profile = default
+      type = Terminal
+      uuid = bb299382-cabf-4249-8c6f-95fc0081a38d
 [plugins]
 [profiles]
   [[default]]
