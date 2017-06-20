@@ -52,7 +52,6 @@ CHECK_ZSH_INSTALLED=$(grep /zsh$ /etc/shells | wc -l)
   if [ $CHECK_ZSH_INSTALLED -ge 1 ]; then # Add the !
       echo $(confirm "Zsh is not installed! Do you want to install zsh?[y/N]!") 
   fi
-fi
 
 # Installation of jq json parser
 if [[ ! -f "/usr/bin/jq" ]]; then
