@@ -22,11 +22,6 @@ fi
 
 unset GREP_OPTIONS
 
-if [ -f ~/.alias ]
-    then
-    source ~/.alias
-fi
-
 # Adding .local/bin and bin to $PATH
 export PATH=~/.local/bin:~/bin:$PATH
 
@@ -58,3 +53,10 @@ antigen theme lovepreetkaul/zsh-themes themes/senti.zsh-theme
 #antigen theme steeef
 # Tell antigen that you're done.
 antigen apply
+
+if [ -f ~/.alias ]
+    then
+    source ~/.alias
+fi
+
+

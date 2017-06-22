@@ -3,6 +3,7 @@
 # Wordcount
 alias wcl="wc -l"
 alias wcw="wc -w"
+alias ll="ls -haltr"
 
 # Functions
 
