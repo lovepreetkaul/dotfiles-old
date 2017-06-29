@@ -59,4 +59,10 @@ if [ -f ~/.alias ]
     source ~/.alias
 fi
 
+if [ -f ~/.alias_spec ]
+    then
+    source ~/.alias_spec
+fi
+
+
 

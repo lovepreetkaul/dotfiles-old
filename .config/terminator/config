@@ -76,6 +76,75 @@
       profile = default
       type = Terminal
       uuid = 36d0a023-4230-474b-93a9-9934cdfa128f
+  [[blogs]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 36d0a023-4230-474b-93a9-9934cdfa128f
+      last_active_window = True
+      maximised = True
+      order = 0
+      parent = ""
+      position = 0:24
+      size = 1366, 709
+      title = LOG MONITORING
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 433
+      ratio = 0.317349926794
+      type = HPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 354
+      ratio = 0.5
+      type = VPaned
+    [[[child5]]]
+      order = 1
+      parent = child1
+      position = 354
+      ratio = 0.5
+      type = VPaned
+    [[[child7]]]
+      order = 1
+      parent = child5
+      position = 463
+      ratio = 0.497317596567
+      type = HPaned
+    [[[terminal3]]]
+      command = /usr/bin/htop
+      order = 0
+      parent = child2
+      profile = forcommands
+      type = Terminal
+      uuid = 36d0a023-4230-474b-93a9-9934cdfa128f
+    [[[terminal4]]]
+      command = ""
+      order = 1
+      parent = child2
+      profile = forcommands
+      type = Terminal
+      uuid = e8536a38-65e4-4147-bb0d-b044a930349b
+    [[[terminal6]]]
+      command = ""
+      order = 0
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = 62bd8f8b-807d-4bb6-9ec0-48b65ab531fa
+    [[[terminal8]]]
+      order = 0
+      parent = child7
+      profile = default
+      type = Terminal
+      uuid = 3f6654b7-a952-40ec-8e6b-bd3f35e2d721
+    [[[terminal9]]]
+      order = 1
+      parent = child7
+      profile = default
+      type = Terminal
+      uuid = ce19d769-210c-452f-a781-79c86a6fcc44
   [[htopped]]
     [[[child0]]]
       fullscreen = False
@@ -251,14 +320,15 @@
     palette = "#2e3436:#cc0000:#4e9a06:#c4a000:#3975c3:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
     use_custom_command = True
     use_system_font = False
-  [[default_old]]
-    background_color = "#002b36"
-    background_darkness = 0.93
+  [[forcommands]]
+    allow_bold = False
+    background_color = "#272822"
     background_image = None
     custom_command = TERM=xterm-256color zsh -l
+    exit_action = hold
     font = Roboto Mono for Powerline 10
-    foreground_color = "#839496"
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#859900:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#586e75"
+    foreground_color = "#ffffff"
+    palette = "#2e3436:#cc0000:#4e9a06:#c4a000:#3975c3:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
     use_system_font = False
   [[molokai]]
     background_color = "#121212"
