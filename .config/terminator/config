@@ -71,9 +71,10 @@
       type = Terminal
       uuid = 6d0b53f6-ce15-4bd1-8de6-e4c34cff46b7
     [[[terminal7]]]
+      command = txnlog
       order = 1
       parent = child5
-      profile = default
+      profile = forcommands
       type = Terminal
       uuid = 36d0a023-4230-474b-93a9-9934cdfa128f
   [[blogs]]
@@ -123,14 +124,14 @@
       command = ""
       order = 1
       parent = child2
-      profile = forcommands
+      profile = default
       type = Terminal
       uuid = e8536a38-65e4-4147-bb0d-b044a930349b
     [[[terminal6]]]
-      command = ""
+      command = /home/lovepreet/.local/bin/txnlog
       order = 0
       parent = child5
-      profile = default
+      profile = forcommands
       type = Terminal
       uuid = 62bd8f8b-807d-4bb6-9ec0-48b65ab531fa
     [[[terminal8]]]
