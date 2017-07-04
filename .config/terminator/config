@@ -128,10 +128,10 @@
       type = Terminal
       uuid = e8536a38-65e4-4147-bb0d-b044a930349b
     [[[terminal6]]]
-      command = /home/lovepreet/.local/bin/txnlog
+      command = ""
       order = 0
       parent = child5
-      profile = forcommands
+      profile = default
       type = Terminal
       uuid = 62bd8f8b-807d-4bb6-9ec0-48b65ab531fa
     [[[terminal8]]]
@@ -193,9 +193,7 @@
     [[[child0]]]
       fullscreen = False
       last_active_term = 5fc152d6-8659-4d45-a304-545113c2cd5e
-      last_active_window = True
-      maximised = True
-      order = 0
+      last_active_window = True maximised = True order = 0
       parent = ""
       position = 0:24
       size = 1366, 709
