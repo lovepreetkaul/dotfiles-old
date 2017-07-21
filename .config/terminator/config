@@ -229,6 +229,62 @@
       profile = default
       type = Terminal
       uuid = 36d0a023-4230-474b-93a9-9934cdfa128f
+  [[woker]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = 2e501353-945e-4efe-81dc-fe1c49efb310
+      last_active_window = True
+      maximised = True
+      order = 0
+      parent = ""
+      position = 0:24
+      size = 1366, 744
+      title = lovepreet@workstation: ~
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 918
+      ratio = 0.672401171303
+      type = HPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 341
+      ratio = 0.459005376344
+      type = VPaned
+    [[[child5]]]
+      order = 1
+      parent = child1
+      position = 341
+      ratio = 0.459005376344
+      type = VPaned
+    [[[terminal3]]]
+      order = 0
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = 2e501353-945e-4efe-81dc-fe1c49efb310
+    [[[terminal4]]]
+      order = 1
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = 2b1d1683-703d-4c2e-991c-6ace2b5fb6d2
+    [[[terminal6]]]
+      command = /usr/bin/htop
+      order = 0
+      parent = child5
+      profile = forcommands
+      type = Terminal
+      uuid = ea7785bf-948d-4b34-84aa-3a9bcd5b2dda
+    [[[terminal7]]]
+      command = ""
+      order = 1
+      parent = child5
+      profile = default
+      type = Terminal
+      uuid = 9667b6a9-2139-4d27-af2a-c12f9fb4eb01
   [[zes]]
     [[[child0]]]
       fullscreen = False
