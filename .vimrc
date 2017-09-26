@@ -268,7 +268,7 @@ call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
-Plug 'valloric/youcompleteme'
+"Plug 'valloric/youcompleteme'
 Plug 'tpope/vim-surround'
 Plug 'altercation/vim-colors-solarized'
 " Initialize plugin system
