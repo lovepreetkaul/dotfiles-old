@@ -8,7 +8,7 @@
 
 stage {
     font-family: sfns display, product sans, helvetica, open sans, source sans pro, segoe ui, ubuntu, nokia pure text, lucida grande, cantarell, sans-serif;
-    font-size: 10.5pt;
+    font-size: 10pt;
     color: #333;}
 
 /***********
@@ -196,7 +196,7 @@ StScrollBar {
     color: #5294e2; }
 
 .headline {
-  font-size: 110%; }
+  font-size: 100%; }
 
 .lightbox {
   background-color: black; }
