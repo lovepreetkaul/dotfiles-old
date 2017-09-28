@@ -9,7 +9,7 @@ alias ll="ls -haltr"
 
 # Convert unix timestamp to human readable date
 function date_u2h { date --date="@$1"; }
-
+function passgen  { openssl rand -base64 18 ; }
 # Get current timestamp
 timestamp() {
       date +"%s"
