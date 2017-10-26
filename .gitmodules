@@ -1,3 +1,15 @@
 [submodule ".fzf"]
 	path = .fzf
 	url = https://github.com/junegunn/fzf.git
+[submodule "syntastic"]
+	path = .vim/plugged/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
+[submodule "vim-airline"]
+	path = .vim/plugged/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "vim-colors-solarized"]
+	path = .vim/plugged/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "vim-surround"]
+	path = .vim/plugged/vim-surround
+	url = https://github.com/tpope/vim-surround.git
