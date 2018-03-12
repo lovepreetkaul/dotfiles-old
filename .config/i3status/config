@@ -66,7 +66,7 @@ run_watch VPN {
 }
 
 tztime local {
-    format = "%A %e de %B de %Y  %H:%M"
+    format = "%A %e-%B-%Y  %H:%M"
 }
 
 load {
