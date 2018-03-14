@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Roboto Mono for Powerline 10
+font pango:3270Medium Nerd Font Bold 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -155,17 +155,24 @@ bar {
         status_command i3status
         position top
 }
-
 # i3-gaps config
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border pixel 2
 hide_edge_borders both
 
 gaps inner 15
-gaps outer 15
+gaps outer 0
 
 
 # Setting xinput for tapping
-exec --no-startup-id xinput set-prop 12 274 1
+exec_always --no-startup-id xinput set-prop 12 274 1
 
 # feh settings
 exec_always --no-startup-id feh --no-fehbg --bg-scale /usr/share/antergos/wallpapers &
+
+# dunst
+exec_always --no-startup-id dunst
+
+# copyq
+exec --no-startup-id copyq
+
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
