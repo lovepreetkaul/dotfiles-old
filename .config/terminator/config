@@ -1,5 +1,6 @@
 [global_config]
   enabled_plugins = InactivityWatch, ActivityWatch
+  extra_styling = False
   handle_size = 1
   inactive_color_offset = 0.654320987654
   scroll_tabbar = True

@@ -64,7 +64,6 @@ if [ -f ~/.alias_spec ]
     source ~/.alias_spec
 fi
 
-
-
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(chef shell-init zsh)"
