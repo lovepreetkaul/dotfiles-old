@@ -66,4 +66,3 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(chef shell-init zsh)"
