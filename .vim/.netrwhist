@@ -1,6 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/home/lovepreet/repo/dynamic-checkout-java-module/DynamicCheckout/build'
 let g:netrw_dirhist_2='/home/lovepreet/ScriptedHost'
 let g:netrw_dirhist_3='/home/lovepreet/Dynamic Checkout RC1/1.0.5/DynamicCheckoutRC1.0.5/build'
 let g:netrw_dirhist_4='/home/lovepreet/.config/i3'
+let g:netrw_dirhist_5='/home/lovepreet/.config/dunst'

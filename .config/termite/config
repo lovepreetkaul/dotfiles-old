@@ -1,18 +1,27 @@
+# Copyright (c) 2016-present Arctic Ice Studio <development@arcticicestudio.com>
+# Copyright (c) 2016-present Sven Greb <code@svengreb.de>
+
+# Project:    Nord Termite
+# Repository: https://github.com/arcticicestudio/nord-termite
+# License:    MIT
+
+
 [options]
-#allow_bold = true
+allow_bold = true
 #audible_bell = false
-#clickable_url = true
-#dynamic_title = true
-font = CodeNewRoman Nerd Font Mono 10.5
+#bold_is_bright = true
+clickable_url = true
+dynamic_title = true
+font = CodeNewRoman Nerd Font Mono Medium 10.5
 #fullscreen = true
-#icon_name = terminal
+icon_name = terminal
 #mouse_autohide = false
 #scroll_on_output = false
 #scroll_on_keystroke = true
 # Length of the scrollback buffer, 0 disabled the scrollback buffer
 # and setting it to a negative value means "infinite scrollback"
 scrollback_lines = 10000
-#search_wrap = true
+search_wrap = true
 #urgent_on_bell = true
 #hyperlinks = false
 
@@ -37,49 +46,61 @@ scrollback_lines = 10000
 # "off", "left" or "right"
 #scrollbar = off
 
+
+# Solarized light color scheme
+
 [colors]
-# If both of these are unset, cursor falls back to the foreground color,
-# and cursor_foreground falls back to the background color.
-#cursor = #dcdccc
-#cursor_foreground = #dcdccc
+foreground = #657b83
+foreground_bold = #073642
+#foreground_dim = #888888
+background = #fdf6e3
+cursor = #586e75
 
-#foreground = #dcdccc
-#foreground_bold = #ffffff
-#background = #3f3f3f
+# if unset, will reverse foreground and background
+#highlight = #839496
 
-# 20% background transparency (requires a compositor)
-#background = rgba(63, 63, 63, 0.8)
+# colors from color0 to color254 can be set
+color0 = #073642
+color1 = #dc322f
+color2 = #859900
+color3 = #b58900
+color4 = #268bd2
+color5 = #d33682
+color6 = #2aa198
+color7 = #eee8d5
+color8 = #002b36
+color9 = #cb4b16
+color10 = #586e75
+color11 = #657b83
+color12 = #839496
+color13 = #6c71c4
+color14 = #93a1a1
+color15 = #fdf6e3
 
-# If unset, will reverse foreground and background
-highlight = #2f2f2f
+# Nord theme
+#[colors]
+#cursor = #d8dee9
+#cursor_foreground = #2e3440
 
-# Colors from color0 to color254 can be set
-color0 = #3f3f3f
-color1 = #705050
-color2 = #60b48a
-color3 = #dfaf8f
-color4 = #506070
-color5 = #dc8cc3
-color6 = #8cd0d3
-color7 = #dcdccc
-color8 = #709080
-color9 = #dca3a3
-color10 = #c3bf9f
-color11 = #f0dfaf
-color12 = #94bff3
-color13 = #ec93d3
-color14 = #93e0e3
-color15 = #ffffff
+#foreground = #d8dee9
+#foreground_bold = #d8dee9
+#background = #2e3440
 
-[hints]
-#font = Monospace 12
-#foreground = #dcdccc
-#background = #3f3f3f
-#active_foreground = #e68080
-#active_background = #3f3f3f
-#padding = 2
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
+#highlight = #4c566a
 
-# vim: ft=dosini cms=#%s
+#color0  = #3b4252
+#color1  = #bf616a
+#color2  = #a3be8c
+#color3  = #ebcb8b
+#color4  = #81a1c1
+#color5  = #b48ead
+#color6  = #88c0d0
+#color7  = #e5e9f0
+#color8  = #4c566a
+#color9  = #bf616a
+#color10 = #a3be8c
+#color11 = #ebcb8b
+#color12 = #81a1c1
+#color13 = #b48ead
+#color14 = #8fbcbb
+#color15 = #eceff4
