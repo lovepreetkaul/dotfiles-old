@@ -10,6 +10,9 @@ export LC_ALL=en_US.UTF-8
 # Ensure editor is set
 export EDITOR=vim
 
+# For Powerlevel9k Theme
+export POWERLEVEL9K_INSTALLATION_PATH=/home/lovepreet/.antigen/bhilburn/powerlevel9k
+
 # This fixes using SSH in urxvt
 if [[ $TERM == 'rxvt-unicode' ]] ; then
     export TERM='xterm'
@@ -49,8 +52,10 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Load the theme.
-antigen theme lovepreetkaul/zsh-themes themes/senti.zsh-theme
-#antigen theme steeef
+#antigen theme lovepreetkaul/zsh-themes themes/senti.zsh-theme
+antigen theme wezm
+#antigen theme bhilburn/powerlevel9k powerlevel9k
+
 # Tell antigen that you're done.
 antigen apply
 

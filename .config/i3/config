@@ -241,14 +241,14 @@ bar {
 #        status_command i3status
        strip_workspace_numbers yes
        position top
-       #colors {
-       #         background $bg-color
-       #         separator #757575
+       colors {
+                background $bg-color
+                separator #757575
                #                  border             background         text
-       #         focused_workspace  $bg-color          $bg-color          $text-color
-       #         inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-       #         urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-       #}
+                focused_workspace  $bg-color          $bg-color          $text-color
+                inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+       }
        # Solarized dark theme
       # colors {
       #background #002b36
@@ -260,18 +260,18 @@ bar {
       #urgent_workspace   #dc322f #dc322f #fdf6e3
       #  }
       # Solarized Light
-      colors {
-        background $base00
-        separator  $base01
-        statusline $base04
+      #colors {
+      #  background $base00
+      #  separator  $base01
+      #  statusline $base04
 
         # State             Border  BG      Text
-        focused_workspace   $base05 $base0D $base00
-        active_workspace    $base05 $base03 $base00
-        inactive_workspace  $base03 $base01 $base05
-        urgent_workspace    $base08 $base08 $base00
-        binding_mode        $base00 $base0A $base00
-      }
+      #  focused_workspace   $base05 $base0D $base00
+      #  active_workspace    $base05 $base03 $base00
+      #  inactive_workspace  $base03 $base01 $base05
+      #  urgent_workspace    $base08 $base08 $base00
+      #  binding_mode        $base00 $base0A $base00
+      #}
 }
 
 # i3-gaps config
@@ -323,26 +323,29 @@ bindsym XF86AudioPrev exec playerctl previous
 
 bindsym $mod+d exec rofi  -font "3270medium nerd font bold 11" -show drun
 
+# guake
+exec --no-startup-id guake
+
 # add monitor when connected
-exec --no-startup-id xrandr --output eDP-1 --right-of DP-1
-bindsym $mod+m exec --no-startup-id xrandr --output eDP-1 --auto --right-of DP-1
+exec --no-startup-id xrandr --output VGA1 --right-of HDMI1
+bindsym $mod+m exec --no-startup-id xrandr --output VGA1 --auto --right-of HDMI1
 
 # Network Manager Applet
 exec --no-startup-id nm-applet
 
-#set $monitor2       eDP-1
-#set $monitor1       DP-1
+set $monitor1       HDMI1
+set $monitor2       VGA1
 
 # workspace division between monitors
-#workspace 1 output $monitor1
-#workspace 2 output $monitor1
-#workspace 3 output $monitor2
-#workspace 4 output $monitor2
-#workspace 5 output $monitor2
-#workspace 6 output $monitor2
-#workspace 7 output $monitor2
-#workspace 8 output $monitor2
-#workspace 9 output $monitor2
+workspace 1 output $monitor1
+workspace 2 output $monitor1
+workspace 3 output $monitor2
+workspace 4 output $monitor2
+workspace 5 output $monitor2
+workspace 6 output $monitor2
+workspace 7 output $monitor2
+workspace 8 output $monitor2
+workspace 9 output $monitor2
 #workspace 10 output $monitor2
 
 # betterlockscreen keybindings
@@ -357,23 +360,24 @@ bindsym $mod+shift+x exec betterlockscreen -l dim
 #client.unfocused        $border $colour $border $border
 #client.urgent           $border $colour $border $border
 
-#set $btext #678898
-#set $ftext #b3c4cb
+set $btext #678898
+set $ftext #b3c4cb
 #class                      border         backgr	  text	   indicator
-#client.focused		        #2C313D        #2e3440    $ftext  $background
-#client.focused_inactive	    #2C313D        #303743    $btext  $background
-#client.unfocused	        #2C313D        #303743    $btext  $background
-#client.urgent		        $background    #282d37    $ftext  $background
-#client.placeholder	        $background    #282D37    $btext  $background
+client.focused		        #2C313D        #2e3440    $ftext  $background
+client.focused_inactive	    #2C313D        #303743    $btext  $background
+client.unfocused	        #2C313D        #303743    $btext  $background
+client.urgent		        $background    #282d37    $ftext  $background
+client.placeholder	        $background    #282D37    $btext  $background
 
+# Solarized Light
 # Basic color configuration using the Base16 variables for windows and borders.
 # Property Name         Border  BG      Text    Indicator Child Border
-client.focused          $base05 $base0D $base00 $base0D $base0D
-client.focused_inactive $base01 $base01 $base05 $base03 $base01
-client.unfocused        $base01 $base00 $base05 $base01 $base01
-client.urgent           $base08 $base08 $base00 $base08 $base08
-client.placeholder      $base00 $base00 $base05 $base00 $base00
-client.background $base07
+#client.focused          $base05 $base0D $base00 $base0D $base0D
+#client.focused_inactive $base01 $base01 $base05 $base03 $base01
+#client.unfocused        $base01 $base00 $base05 $base01 $base01
+#client.urgent           $base08 $base08 $base00 $base08 $base08
+#client.placeholder      $base00 $base00 $base05 $base00 $base00
+#client.background $base07
 
 # Solarized dark
 #client.focused          #002b36 #586e75 #fdf6e3 #268bd2
