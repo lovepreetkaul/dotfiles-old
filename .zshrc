@@ -10,9 +10,6 @@ export LC_ALL=en_US.UTF-8
 # Ensure editor is set
 export EDITOR=vim
 
-# For Powerlevel9k Theme
-export POWERLEVEL9K_INSTALLATION_PATH=/home/lovepreet/.antigen/bhilburn/powerlevel9k
-
 # This fixes using SSH in urxvt
 if [[ $TERM == 'rxvt-unicode' ]] ; then
     export TERM='xterm'
@@ -71,3 +68,18 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/lovepreet/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+export PATH=$PATH:/home/lovepreet/bin
+
+source '/home/lovepreet/lib/azure-cli/az.completion'
+
+if [ -f ~/azure_environment.sh ] 
+then
+    source ~/azure_environment.sh
+fi
