@@ -271,6 +271,7 @@ Plug 'vim-airline/vim-airline'
 "Plug 'valloric/youcompleteme'
 Plug 'tpope/vim-surround'
 Plug 'altercation/vim-colors-solarized'
+Plug 'arcticicestudio/nord-vim'
 " Initialize plugin system
 call plug#end()
 
@@ -283,9 +284,5 @@ set encoding=utf-8
 set laststatus=2
 let g:airline_powerline_fonts=1
 
-" Solarized Theme
-let g:solarized_termcolors=256
-syntax enable
-set background=dark
-colorscheme solarized
-set clipboard=unnamedplus
+" Nord Theme
+colorscheme nord

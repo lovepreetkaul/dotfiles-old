@@ -15,56 +15,13 @@
 set $mod Mod4
 #set $mod Alt_L
 
-#set_from_resource $base03   i3wm.color8     #002b36
-#set_from_resource $base02   i3wm.color0     #073642
-#set_from_resource $base01   i3wm.color10    #586e75
-#set_from_resource $base00   i3wm.color11    #657b83
-set_from_resource $base0    i3wm.color12    #839496
-set_from_resource $base1    i3wm.color14    #93a1a1
-set_from_resource $base2    i3wm.color7     #eee8d5
-set_from_resource $base3    i3wm.color15    #fdf6e3
-
-set_from_resource $yellow   i3wm.color3     #b58900
-set_from_resource $orange   i3wm.color9     #cb4b16
-set_from_resource $red      i3wm.color1     #dc322f
-set_from_resource $magenta  i3wm.color5     #d33682
-set_from_resource $violet   i3wm.color13    #6c71c4
-set_from_resource $blue     i3wm.color4     #268bd2
-set_from_resource $cyan     i3wm.color6     #2aa198
-set_from_resource $green    i3wm.color2     #859900
-
-set_from_resource $background i3wm.background $base3
-set_from_resource $foreground i3wm.foreground $base00
-
-set_from_resource $lighterbg  i3wm.lighterbg  $base02
-set_from_resource $separator  i3wm.separator  $lighterbg
-
-
-set $base00 #fdf6e3
-set $base01 #eee8d5
-set $base02 #93a1a1
-set $base03 #839496
-set $base04 #657b83
-set $base05 #586e75
-set $base06 #073642
-set $base07 #002b36
-set $base08 #dc322f
-set $base09 #cb4b16
-set $base0A #b58900
-set $base0B #859900
-set $base0C #2aa198
-set $base0D #268bd2
-set $base0E #6c71c4
-set $base0F #d33682
-
-# Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:Monaco Bold 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:CodeNewRoman Nerd Font Mono Bold 10.5
-font pango:3270Medium Nerd Font Mono Bold 11
+font pango:OverpassMono Nerd Font Regular 10
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -241,50 +198,55 @@ set $text-color         "#f3f4f5"
 set $inactive-text-color"#676E7D"
 set $urgent-bg-color    "#E53935"
 
-bar {
-        status_command i3blocks -c /etc/i3blocks.conf
-#        status_command i3status
-       strip_workspace_numbers yes
-       position top
-       colors {
-                background $bg-color
-                separator #757575
-               #                  border             background         text
-                focused_workspace  $bg-color          $bg-color          $text-color
-                inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-       }
-       # Solarized dark theme
-      # colors {
-      #background #002b36
-      #statusline #839496
-      #separator  #586e75
-      #focused_workspace  #b58900 #b58900 #002b36
-      #active_workspace   #586e75 #586e75 #002b36
-      #inactive_workspace #073642 #002b36 #839496
-      #urgent_workspace   #dc322f #dc322f #fdf6e3
-      #  }
-      # Solarized Light
-      #colors {
-      #  background $base00
-      #  separator  $base01
-      #  statusline $base04
+# Nord theme colors
 
-        # State             Border  BG      Text
-      #  focused_workspace   $base05 $base0D $base00
-      #  active_workspace    $base05 $base03 $base00
-      #  inactive_workspace  $base03 $base01 $base05
-      #  urgent_workspace    $base08 $base08 $base00
-      #  binding_mode        $base00 $base0A $base00
-      #}
+set $nord0   #2E3440
+set $nord1   #3B4252
+set $nord2   #434C5E
+set $nord3   #4C566A
+set $nord4   #D8DEE9
+set $nord5   #E5E9F0
+set $nord6   #ECEFF4
+set $nord7   #8FBCBB
+set $nord8   #88C0D0
+set $nord9   #81A1C1
+set $nord10  #5E81AC
+set $nord11  #BF616A
+set $nord12  #D08770
+set $nord13  #EBCB8B
+set $nord14  #A3BE8C
+set $nord15 #B48EAD
+
+bar {
+        status_command i3blocks -c ~/.config/i3blocks.conf
+#        status_command i3status
+        strip_workspace_numbers yes
+        position top
+        colors {
+            background $nord0
+            statusline $nord8
+	        separator $nord8
+
+            focused_workspace  $nord3  $nord8
+	        active_workspace   $nord3  $nord8
+	        inactive_workspace $nord8  $nord3
+            urgent_workspace $nord3 $nord15
+        }
 }
 
-# i3-gaps config
-#for_window [class=".*"] border pixel 2
-#hide_edge_borders both
+#bar {
+#    position top
+#	status_command ~/repo/bumblebee-status/bumblebee-status -m cpu memory battery time pasink pasource -p time.format="%H:%M" -t onedark-powerline
+#}
 
-#gaps inner 10
-#gaps outer 5
+# i3-gaps config
+for_window [class=".*"] border pixel 2
+hide_edge_borders both
+
+gaps inner 10
+gaps outer 5
+#smart_gaps on
+smart_borders no_gaps
 
 #bindsym --release Caps_lock exec pkill -SIGRTMIN+11 i3blocks
 #bindsym --release Num_lock  exec pkill -SIGRTMIN+11 i3blocks
@@ -293,7 +255,7 @@ exec_always --no-startup-id xinput set-prop 12 274 1
 
 # wallpaper settings
 #exec_always --no-startup-id feh --no-fehbg --bg-scale /usr/share/antergos/wallpapers &
-exec --no-startup-id nitrogen --restore
+exec_always --no-startup-id nitrogen --restore
 
 # dunst
 exec_always --no-startup-id dunst
@@ -329,10 +291,11 @@ bindsym XF86AudioPrev exec playerctl previous
 #for_window [class="ncmpcpp" instance="gnome-terminal"] floating enable, resize set 890px 210px, move position 515px 22px, sticky enable
 
 
-bindsym $mod+d exec rofi  -font "3270medium nerd font bold 11" -show drun
+bindsym $mod+d exec rofi -font "Overpass Regular 9.5" -show drun
 
 # guake
 exec --no-startup-id guake
+exec_always --no-startup-id compton
 
 # eclipse
 bindsym $mod+shift+p exec --no-startup-id /home/lovepreet/eclipse/eclipse 
@@ -362,36 +325,8 @@ workspace 9 output $monitor2
 # betterlockscreen keybindings
 bindsym $mod+shift+x exec betterlockscreen -l dim
 
-#set $border_u #657b83
-#set $border #4c566a
-#set $colour #272827
-#set $colour #2e3440
-#client.focused          $border_u $colour $border_u $border_u
-#client.focused_inactive $border $colour $border $border
-#client.unfocused        $border $colour $border $border
-#client.urgent           $border $colour $border $border
+client.focused               #2E3440  #2E3440  #ffffff  #2E3440
+client.focused_inactive      #212121  #212121  #868686  #212121
+client.unfocused             #212121  #212121  #868686  #212121
+client.urgent                #BF616A  #BF616A  #ffffff  #BF616A
 
-set $btext #678898
-set $ftext #b3c4cb
-#class                      border         backgr	  text	   indicator
-client.focused		        #2C313D        #2e3440    $ftext  $background
-client.focused_inactive	    #2C313D        #303743    $btext  $background
-client.unfocused	        #2C313D        #303743    $btext  $background
-client.urgent		        $background    #282d37    $ftext  $background
-client.placeholder	        $background    #282D37    $btext  $background
-
-# Solarized Light
-# Basic color configuration using the Base16 variables for windows and borders.
-# Property Name         Border  BG      Text    Indicator Child Border
-#client.focused          $base05 $base0D $base00 $base0D $base0D
-#client.focused_inactive $base01 $base01 $base05 $base03 $base01
-#client.unfocused        $base01 $base00 $base05 $base01 $base01
-#client.urgent           $base08 $base08 $base00 $base08 $base08
-#client.placeholder      $base00 $base00 $base05 $base00 $base00
-#client.background $base07
-
-# Solarized dark
-#client.focused          #002b36 #586e75 #fdf6e3 #268bd2
-#client.focused_inactive #002b36 #073642 #839496 #073642
-#client.unfocused        #002b36 #073642 #839496 #073642
-#client.urgent #002b36 #dc322f #fdf6e3 #002b36
