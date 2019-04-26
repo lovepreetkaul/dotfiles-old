@@ -252,7 +252,7 @@ autocmd FileType markdown set textwidth=80
 autocmd FileType c set omnifunc=ccomplete#Complete
 
 " My own special flavoring to running programs
-"autocmd FileType asm,c,objc,scheme,sh,python,perl,javascript nn <leader>R :!deepThought.sh '%:p'<cr>
+autocmd FileType asm,c,objc,scheme,sh,python,perl,javascript nn <leader>R :!deepThought.sh '%:p'<cr>
 
 " Use 2 spaces when in Lua & Ruby
 autocmd FileType lua,ruby set tabstop=2
@@ -286,3 +286,6 @@ let g:airline_powerline_fonts=1
 
 " Nord Theme
 colorscheme nord
+filetype on
+filetype plugin on
+filetype indent on

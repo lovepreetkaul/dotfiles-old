@@ -50,6 +50,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Load the theme.
 #antigen theme lovepreetkaul/zsh-themes themes/senti.zsh-theme
+#antigen theme lovepreetkaul/zsh-themes themes/agnoster-light.zsh-theme
 antigen theme wezm
 #antigen theme bhilburn/powerlevel9k powerlevel9k
 
