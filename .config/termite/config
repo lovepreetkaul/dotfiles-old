@@ -12,7 +12,8 @@ allow_bold = true
 #bold_is_bright = true
 clickable_url = true
 dynamic_title = true
-font = CodeNewRoman Nerd Font Mono Medium 10.5
+#font = Monaco Regular 9.5
+font = CodeNewRoman Nerd Font Regular 10.5
 #fullscreen = true
 icon_name = terminal
 #mouse_autohide = false
@@ -105,7 +106,7 @@ search_wrap = true
 #color14 = #8fbcbb
 #color15 = #eceff4
 #
-# one dark
+### One dark
 [colors]
 
 # special
@@ -146,4 +147,38 @@ color14 = #3c909b
 color7  = #abb2bf
 color15 = #828997
 
-# vim: ft=dosini cms=#%s
+## vim: ft=dosini cms=#%s
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

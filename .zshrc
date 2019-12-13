@@ -84,3 +84,5 @@ if [ -f ~/azure_environment.sh ]
 then
     source ~/azure_environment.sh
 fi
+
+unsetopt BEEP

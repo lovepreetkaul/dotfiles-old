@@ -252,7 +252,7 @@ autocmd FileType markdown set textwidth=80
 autocmd FileType c set omnifunc=ccomplete#Complete
 
 " My own special flavoring to running programs
-autocmd FileType asm,c,objc,scheme,sh,python,perl,javascript nn <leader>R :!deepThought.sh '%:p'<cr>
+"autocmd FileType asm,c,objc,scheme,sh,python,perl,javascript nn <leader>R :!deepThought.sh '%:p'<cr>
 
 " Use 2 spaces when in Lua & Ruby
 autocmd FileType lua,ruby set tabstop=2
@@ -271,7 +271,11 @@ Plug 'vim-airline/vim-airline'
 "Plug 'valloric/youcompleteme'
 Plug 'tpope/vim-surround'
 Plug 'altercation/vim-colors-solarized'
-Plug 'arcticicestudio/nord-vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'vim-scripts/git_patch_tags.vim'
 " Initialize plugin system
 call plug#end()
 
@@ -284,8 +288,40 @@ set encoding=utf-8
 set laststatus=2
 let g:airline_powerline_fonts=1
 
-" Nord Theme
-colorscheme nord
-filetype on
-filetype plugin on
-filetype indent on
+
+let NERDTreeQuitOnOpen = 0
+let NERDTreeShowLineNumbers = 1
+let NERDTreeMinimalUI = 1
+
+au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+set showcmd
+nnoremap <leader>nf :NERDTreeFind<CR>
+nnoremap <leader>nt :NERDTreeToggle<CR>
+
+let g:airline#extensions#tagbar#enabled=1
+let g:airline#extensions#branch#enabled=1
+let g:airline#extensions#hunks#enabled=1
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#show_buffers=1
+let g:airline#extensions#bufferline#enabled=1
+let g:airline#extensions#whitespace#enabled=1
+
+
+au BufWritePost * GitGutter
+
+nmap <leader>hs <Plug>GitGutterStageHunk
+nmap <leader>hr <Plug>GitGutterUndoHunk
+nmap <leader>hv <Plug>GitGutterPreviewHunk
+nmap <leader>hn <Plug>GitGutterNextHunk
+nmap <leader>hp <Plug>GitGutterPrevHunk
+
+"{{{ xclip
+if !exists("*CustomXClipCall")
+	function CustomXClipCall() range
+		echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\r")).' | xclip -sel clip')
+	endfunction
+	com -range=% -nargs=0 CustomXClipCall :<line1>,<line2>call CustomXClipCall()
+	vnoremap qp :CustomXClipCall<cr>
+endif
+"}}}
