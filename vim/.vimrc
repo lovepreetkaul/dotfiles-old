@@ -1,13 +1,38 @@
-" Author:        Lovepreet Singh
-" Description:   This is my personal .vimrc file.
-"
+" Author:        pdotl <Lovepreet Singh>
 
-" **Must be first uncommented line**
+" Description:   My vim configuration file.
+
+" So vim doesn't behave like vi
 set nocompatible
 
-"
-" Global Settings
-"
+" Finding files:
+
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+
+" Display all matching files when we tab complete
+set wildmenu
+
+" TAG JUMPING
+
+" Create the `tags` file
+" Ensure exuberant-ctags is installed instead of emacs etags
+command! MakeTags !ctags -R .
+" ^] for reaching
+" g^] for searching
+
+" Setting the leader
+let mapleader = ','
+let maplocalleader = '\'
+
+" File browsing
+let g:netrw_banner=0
+let g:netrw_browse_split=4
+let g:netrw_altv=1
+let g:netrw_liststyle=3
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s)\zs\.\S\+'
 
 " The default 20 isn't nearly enough
 set history=200
@@ -21,12 +46,9 @@ set ruler
 " Set mouse to not select line numbers
 set mouse=a
 
-" Highlight only the lines that go past 80 characters
-highlight ColorColumn ctermbg=green guibg=green
-call matchadd('ColorColumn', '\%82v', 100)
-
-" Enable Syntax highlighting
+" Enable syntax and plugins
 syntax on
+filetype plugin on
 
 " Show the matching when doing a search
 set showmatch
@@ -62,13 +84,18 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
-" Use spaces to indent code
+" I have been converted to the dark side, I will use spaces to indent code
+" from here on out
 set expandtab
 
 " Buffer Settings
 set hidden
 
+" Better completion
+set completeopt+=longest,menuone
+
 " Turn on persistent undo
+" Thanks, Mr Wadsten: github.com/mikewadsten/dotfiles/
 if has('persistent_undo')
     set undodir=~/.vim/undo//
     set undofile
@@ -76,72 +103,19 @@ if has('persistent_undo')
     set undoreload=10000
 endif
 
-" The comma makes a great leader of men, heh heh
-let mapleader = ','
-let maplocalleader = '\'
-
 " Show two lines for the status line
 set laststatus=2
 
 " Always show the last line
 set display+=lastline
 
-" UTF-8 THIS SHITTTTTT
+" UTF-8
 set encoding=utf-8
-
-" Enhanced mode for command-line completion
-set wildmenu
-
-" Automatically re-read the file if it has changed
-set autoread
-
-" Fold Settings
-
-" Off on start
-set nofoldenable
-
-" Indent seems to work the best
-set foldmethod=indent
-set foldlevel=20
-
-" Toggling paste mode
-set pastetoggle=<F2>
-
-"
-" Global Bindings
-"
-
-" Disable ex mode, ick, remap it to Q instead.
-"
-" Tip:
-"   Use command-line-window with q:
-"   Use search history with q/
-"
-" More info:
-" http://blog.sanctum.geek.nz/vim-command-window/
-"nmap Q q
-
-" Split the window using some nice shortcuts
-nmap <leader>s<bar> :vsplit<cr>
-nmap <leader>s- :split<cr>
-nmap <leader>s? :map <leader>s<cr>
 
 " When pushing j/k on a line that is wrapped, it navigates to the same line,
 " just to the expected location rather than to the next line
 nnoremap j gj
 nnoremap k gk
-
-" Use actually useful arrow keys
-map <right> :bn<cr>
-map <left> :bp<cr>
-map <up> <nop>
-map <down> <nop>
-
-" Map Ctrl+V to paste in Insert mode
-imap <C-V> <C-R>*
-
-" Map Ctrl+C to copy in Visual mode
-vmap <C-C> "+y
 
 " Ignore some defaults
 set wildignore=*.o,*.obj,*~,*.pyc
@@ -165,12 +139,11 @@ set wildignore+=*.png,*.jpg,*.gif
 set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/Library/**,*/.rbenv/**
 set wildignore+=*/.nx/**,*.app
 
-"
-" Custom Settings
-"
-
 " Set on textwidth when in markdown files
 autocmd FileType markdown set textwidth=80
+
+" Smarter completion in C
+autocmd FileType c set omnifunc=ccomplete#Complete
 
 " Use 2 spaces when in Lua & Ruby
 autocmd FileType lua,ruby set tabstop=2
