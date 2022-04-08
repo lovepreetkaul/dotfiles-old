@@ -52,7 +52,6 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 #antigen theme lovepreetkaul/zsh-themes themes/senti.zsh-theme
 #antigen theme lovepreetkaul/zsh-themes themes/agnoster-light.zsh-theme
 antigen theme wezm
-#antigen theme bhilburn/powerlevel9k powerlevel9k
 
 # Tell antigen that you're done.
 antigen apply
@@ -77,8 +76,6 @@ compinit
 # End of lines added by compinstall
 
 export PATH=$PATH:/home/lovepreet/bin
-
-source '/home/lovepreet/lib/azure-cli/az.completion'
 
 if [ -f ~/azure_environment.sh ] 
 then
