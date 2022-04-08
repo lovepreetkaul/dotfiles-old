@@ -15,9 +15,8 @@ set path+=**
 set wildmenu
 
 " TAG JUMPING
-
 " Create the `tags` file
-" Ensure exuberant-ctags is installed instead of emacs etags
+" Ensure exuberant-ctags is installed instead of emacs-etags
 command! MakeTags !ctags -R .
 " ^] for reaching
 " g^] for searching
@@ -166,4 +165,5 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin()
 Plug 'vimwiki/vimwiki'
 Plug 'preservim/nerdtree'
+Plug 'tpope/vim-fugitive'
 call plug#end()
