@@ -1,54 +1,9 @@
 " Author:        Lovepreet Singh
 " Description:   This is my personal .vimrc file.
 "
-" As the help says 'Make vim behave in a more useful way'
+
 " **Must be first uncommented line**
 set nocompatible
-
-"
-" Custom Functions
-"
-
-" Remove trailing whitespace
-" http://vim.wikia.com/wiki/Remove_unwanted_spaces
-function! StripTrailingWhitespace()
-    if !&binary && &filetype != 'diff'
-        normal mz
-        normal Hmy
-        %s/\s\+$//e
-        normal 'yz<cr>
-        normal `z
-        retab
-    endif
-endfunction
-
-" Function to hide all the text except for the text selected in visual mode.
-" This is great for highlighting parts of the code. Just call the function
-" again to deselect everything.
-function! ToggleSelected(visual) range
-    highlight HideSelected ctermfg=bg ctermbg=bg
-                         \ guifg=bg guibg=bg gui=none term=none cterm=none
-
-    if exists('g:toggle_selected_hide')
-        call matchdelete(g:toggle_selected_hide)
-
-        unlet g:toggle_selected_hide
-        redraw
-
-        if !a:visual
-            return
-        endif
-    endif
-
-    let [lnum1, col1] = getpos(''<')[1:2]
-    let [lnum2, col2] = getpos(''>')[1:2]
-
-    let pattern = '\%^\|\%<'.lnum1.'l\|\%<'.col1.'v\|\%>'.lnum2.'l\|\%>'.col2.'v'
-    let g:toggle_selected_hide = matchadd('HideSelected', pattern, 1000)
-
-    redraw
-endfunction
-
 
 "
 " Global Settings
@@ -70,7 +25,7 @@ set mouse=a
 highlight ColorColumn ctermbg=green guibg=green
 call matchadd('ColorColumn', '\%82v', 100)
 
-" Pretty colors are fun, yayyy
+" Enable Syntax highlighting
 syntax on
 
 " Show the matching when doing a search
@@ -107,21 +62,13 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
-" I have been converted to the dark side, I will use spaces to indent code
-" from here on out
+" Use spaces to indent code
 set expandtab
 
 " Buffer Settings
 set hidden
 
-" Better completion
-set completeopt+=longest,menuone
-
-" Setting omnifunc for YCM
-set omnifunc=syntaxcomplete#Complete
-
 " Turn on persistent undo
-" Thanks, Mr Wadsten: github.com/mikewadsten/dotfiles/
 if has('persistent_undo')
     set undodir=~/.vim/undo//
     set undofile
@@ -174,27 +121,10 @@ set pastetoggle=<F2>
 " http://blog.sanctum.geek.nz/vim-command-window/
 "nmap Q q
 
-" Show only selected in Visual Mode
-nmap <silent> <leader>th :cal ToggleSelected(0)<cr>
-vmap <silent> <leader>th :cal ToggleSelected(1)<cr>
-
 " Split the window using some nice shortcuts
 nmap <leader>s<bar> :vsplit<cr>
 nmap <leader>s- :split<cr>
 nmap <leader>s? :map <leader>s<cr>
-
-" Unhighlight the last search pattern on Enter
-nn <silent> <cr> :nohlsearch<cr><cr>
-
-" Control enhancements in insert mode
-imap <C-F> <right>
-imap <C-B> <left>
-imap <M-BS> <esc>vBc
-imap <C-P> <up>
-imap <C-N> <down>
-
-" Non quitting analog of ZZ
-nmap zz :w<cr>
 
 " When pushing j/k on a line that is wrapped, it navigates to the same line,
 " just to the expected location rather than to the next line
@@ -212,9 +142,6 @@ imap <C-V> <C-R>*
 
 " Map Ctrl+C to copy in Visual mode
 vmap <C-C> "+y
-
-" Add paste shortcut
-nmap <leader>P "+p
 
 " Ignore some defaults
 set wildignore=*.o,*.obj,*~,*.pyc
@@ -238,9 +165,6 @@ set wildignore+=*.png,*.jpg,*.gif
 set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/Library/**,*/.rbenv/**
 set wildignore+=*/.nx/**,*.app
 
-" Fold Keybindings
-"nnoremap <space> za
-
 "
 " Custom Settings
 "
@@ -248,80 +172,6 @@ set wildignore+=*/.nx/**,*.app
 " Set on textwidth when in markdown files
 autocmd FileType markdown set textwidth=80
 
-" Smarter completion in C
-autocmd FileType c set omnifunc=ccomplete#Complete
-
-" My own special flavoring to running programs
-"autocmd FileType asm,c,objc,scheme,sh,python,perl,javascript nn <leader>R :!deepThought.sh '%:p'<cr>
-
 " Use 2 spaces when in Lua & Ruby
 autocmd FileType lua,ruby set tabstop=2
 autocmd FileType lua,ruby set shiftwidth=2
-
-"
-" Vim-plug Plugin Manager
-"
-
-" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
-call plug#begin('~/.vim/plugged')
-
-" Make sure you use single quotes
-Plug 'vim-syntastic/syntastic'
-Plug 'vim-airline/vim-airline'
-"Plug 'valloric/youcompleteme'
-Plug 'tpope/vim-surround'
-Plug 'altercation/vim-colors-solarized'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'vim-scripts/git_patch_tags.vim'
-" Initialize plugin system
-call plug#end()
-
-"
-" Custom Plugin Settings
-"
-
-" Airline
-set encoding=utf-8
-set laststatus=2
-let g:airline_powerline_fonts=1
-
-
-let NERDTreeQuitOnOpen = 0
-let NERDTreeShowLineNumbers = 1
-let NERDTreeMinimalUI = 1
-
-au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-set showcmd
-nnoremap <leader>nf :NERDTreeFind<CR>
-nnoremap <leader>nt :NERDTreeToggle<CR>
-
-let g:airline#extensions#tagbar#enabled=1
-let g:airline#extensions#branch#enabled=1
-let g:airline#extensions#hunks#enabled=1
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#show_buffers=1
-let g:airline#extensions#bufferline#enabled=1
-let g:airline#extensions#whitespace#enabled=1
-
-
-au BufWritePost * GitGutter
-
-nmap <leader>hs <Plug>GitGutterStageHunk
-nmap <leader>hr <Plug>GitGutterUndoHunk
-nmap <leader>hv <Plug>GitGutterPreviewHunk
-nmap <leader>hn <Plug>GitGutterNextHunk
-nmap <leader>hp <Plug>GitGutterPrevHunk
-
-"{{{ xclip
-if !exists("*CustomXClipCall")
-	function CustomXClipCall() range
-		echo system('echo '.shellescape(join(getline(a:firstline, a:lastline), "\r")).' | xclip -sel clip')
-	endfunction
-	com -range=% -nargs=0 CustomXClipCall :<line1>,<line2>call CustomXClipCall()
-	vnoremap qp :CustomXClipCall<cr>
-endif
-"}}}
