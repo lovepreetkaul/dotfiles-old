@@ -8,7 +8,6 @@ alias datef='date +"%Y%m%d_%H%M%S"'
 alias date_ams='TZ=":Europe/Amsterdam" date' 
 alias tellmewhendone="notify-send -a 'Terminal Task' 'Done' \"In: `tty`\"; aplay ~/Music/notifsound.wav"
 alias tailf='tail -f'
-alias vim='nvim'
 # Functions
 
 # Convert unix timestamp to human readable date
