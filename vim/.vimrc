@@ -166,4 +166,11 @@ call plug#begin()
 Plug 'vimwiki/vimwiki'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
+Plug 'srcery-colors/srcery-vim'
 call plug#end()
+
+" NERDTree
+map <F3> :NERDTreeToggle<CR>
+
+" Colorscheme
+colorscheme srcery
