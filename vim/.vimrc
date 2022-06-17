@@ -173,4 +173,4 @@ call plug#end()
 map <F3> :NERDTreeToggle<CR>
 
 " Colorscheme
-colorscheme srcery
+" colorscheme srcery
