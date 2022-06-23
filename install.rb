@@ -13,8 +13,10 @@ def stow_vim
   system("stow -vSt #{dir} nvim")
 end
 
-def stow(name)
-  system("stow -vSt ~ #{name}")
+def stow_zsh
+  file = "~/.zshrc"
+  system("mv -vf #{file} #{file}.bak") if system("[ -f #{file} ] && [ ! -L #{file} ]")
+  system("stow -vSt ~ zsh")
 end
 
 def ubuntu?
@@ -37,4 +39,4 @@ end
 # Ensure directories exist, create them if they don't
 install_stow unless stow_exists?
 stow_vim
-stow "zsh"
+stow_zsh
