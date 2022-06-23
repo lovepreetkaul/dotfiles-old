@@ -1,5 +1,4 @@
 " Author:        pdotl <Lovepreet Singh>
-
 " Description:   My vim configuration file.
 
 " So vim doesn't behave like vi

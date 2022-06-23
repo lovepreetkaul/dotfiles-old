@@ -17,11 +17,22 @@ def stow(name)
   system("stow -vSt ~ #{name}")
 end
 
+def ubuntu?
+  `uname -a`.downcase.include? "ubuntu"
+end
+
+def install_stow
+  return if stow_exists?
+  system("sudo apt-get install -y stow") if ubuntu?
+  puts "Only ubuntu installation supported!"
+  exit(127)
+end
+
 # Steps
 # Check if stow is installed. Exit if not
 # Run stow on files in the repo and symlink to correct locations
-# Ensure files don't already exist there, backup them if they do.
+# TODO Ensure files don't already exist there, backup them if they do.
 # Ensure directories exist, create them if they don't
-exit(127) unless stow_exists?
+install_stow unless stow_exists?
 stow_vim
 stow "zsh"
