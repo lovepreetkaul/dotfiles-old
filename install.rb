@@ -23,9 +23,11 @@ end
 
 def install_stow
   return if stow_exists?
-  system("sudo apt-get install -y stow") if ubuntu?
-  puts "Only ubuntu installation supported!"
-  exit(127)
+  unless ubuntu?
+    puts "Only ubuntu installation supported!"
+    exit(127)
+  end
+  system("sudo apt-get install -y stow")
 end
 
 # Steps
