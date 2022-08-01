@@ -1,9 +1,18 @@
 #/usr/bin/env ruby
 
-# Script to ensure stow runs all config post installation
+# dotfiles Installation script
 
-def stow_exists?
-  system('sh -c "command -v stow"')
+
+def command_exists? (command)
+  `sh -c "command -v #{command}"`
+end
+
+def linux?
+  (/linux/ =~ RUBY_PLATFORM) != nil
+end
+
+def ubuntu?
+  `uname -a`.downcase.include? "ubuntu"
 end
 
 def stow_vim
@@ -19,24 +28,28 @@ def stow_zsh
   system("stow -vSt ~ zsh")
 end
 
-def ubuntu?
-  `uname -a`.downcase.include? "ubuntu"
-end
+def install_packages (packages)
+  return true if stow_exists?
+  if ubuntu?
+    update_cache = "/var/lib/apt/lists"
+    `sudo apt update` unless Dir.exists?(update_cache) or Dir.empty?(update_cache)  
 
-def install_stow
-  return if stow_exists?
-  unless ubuntu?
-    puts "Only ubuntu installation supported!"
-    exit(127)
+    `sudo echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections`
+    `sudo apt -y -q install #{packages}`
   end
-  system("sudo apt-get install -y stow")
+end 
+
+
+# Main
+exit(127) unless linux?
+
+packages = %w( bat fuse dialog apt-utils libfuse2)
+install_packages
+install_neovim
+if stow?
+  stow_vim
+  stow_zsh
+else
+  link_files
 end
 
-# Steps
-# Check if stow is installed. Exit if not
-# Run stow on files in the repo and symlink to correct locations
-# TODO Ensure files don't already exist there, backup them if they do.
-# Ensure directories exist, create them if they don't
-install_stow unless stow_exists?
-stow_vim
-stow_zsh
