@@ -166,6 +166,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'srcery-colors/srcery-vim'
+Plug 'OmniSharp/omnisharp-vim'
 call plug#end()
 
 " NERDTree
