@@ -105,3 +105,4 @@ eval "$(rbenv init -)"
  
  
  
+export PATH=/Users/pdotl/repo/awssume/bin:$PATH
