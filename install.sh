@@ -7,7 +7,6 @@ set -x
 
 # Install curl, tar, git, other dependencies if missing
 PACKAGES_NEEDED="\
-    silversearcher-ag \
     bat \
     fuse \
     dialog \
