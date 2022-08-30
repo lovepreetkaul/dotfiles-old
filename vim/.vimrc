@@ -37,7 +37,7 @@ set history=200
 
 " Show the numbers on the left of the screen
 set number
-
+set relativenumber
 " Show the column/row
 set ruler
 

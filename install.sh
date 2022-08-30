@@ -39,9 +39,9 @@ return
 if [ ! -d $dir ]; then 
     mkdir -p $dir
 fi
-stow -vSt ~ vim
+stow -vSt $HOME vim
 stow -vSt $dir nvim
-stow -vSt ~ zsh
+stow -vSt $HOME zsh
 
 nvim +'PlugInstall --sync' 
 
