@@ -37,7 +37,10 @@ set history=200
 
 " Show the numbers on the left of the screen
 set number
+
+" Set relative numbering
 set relativenumber
+
 " Show the column/row
 set ruler
 
@@ -162,7 +165,6 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
 
 call plug#begin()
-Plug 'vimwiki/vimwiki'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'srcery-colors/srcery-vim'
@@ -187,3 +189,7 @@ omap <leader><tab> <plug>(fzf-maps-o)
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" Fzf file search
+map  <c-p> :GFiles<CR>
+map  <c-f> :Files<CR>
