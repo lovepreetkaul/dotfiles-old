@@ -171,6 +171,7 @@ Plug 'srcery-colors/srcery-vim'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 " NERDTree
