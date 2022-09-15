@@ -193,3 +193,9 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " Fzf file search
 map  <c-p> :GFiles<CR>
 map  <c-f> :Files<CR>
+
+" Omnisharp mappings
+autocmd FileType cs nmap <silent> gd :OmniSharpGotoDefinition<CR>
+autocmd FileType cs nnoremap <buffer> <Leader>fu :OmniSharpFindUsages<CR>
+autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
+autocmd FileType cs nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
