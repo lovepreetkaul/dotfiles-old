@@ -200,3 +200,12 @@ autocmd FileType cs nmap <silent> gd :OmniSharpGotoDefinition<CR>
 autocmd FileType cs nnoremap <buffer> <Leader>fu :OmniSharpFindUsages<CR>
 autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
 autocmd FileType cs nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
+" Tab for code completion except when newline or space
+inoremap <expr> <Tab> pumvisible() ? '<C-n>' :
+\ getline('.')[col('.')-2] =~# '[[:alnum:].-_#$]' ? '<C-x><C-o>' : '<Tab>'
+autocmd FileType cs nnoremap <C-o><C-u> :OmniSharpFindUsages<CR>
+autocmd FileType cs nnoremap <C-o><C-i> :OmniSharpFindImplementations<CR>
+autocmd FileType cs nnoremap <C-o><C-d> :OmniSharpGotoDefinition<CR>
+autocmd FileType cs nnoremap <C-o><C-d><C-p> :OmniSharpPreviewDefinition<CR>
+" autocmd FileType cs nnoremap <C-o><C-r> :!dotnet run
+autocmd FileType cs nnoremap <C-o><C-a> :OmniSharpGetCodeActions<CR>
