@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 #
 # Global fixes
 #
@@ -39,9 +37,6 @@ antigen use oh-my-zsh
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
 antigen bundle mercurial
-#antigen bundle heroku
-#antigen bundle pip
-#antigen bundle lein
 antigen bundle command-not-found
 
 # Zsh completions
@@ -51,8 +46,6 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Load the theme.
-#antigen theme lovepreetkaul/zsh-themes themes/senti.zsh-theme
-#antigen theme lovepreetkaul/zsh-themes themes/agnoster-light.zsh-theme
 antigen theme wezm
 
 # Tell antigen that you're done.
@@ -77,8 +70,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-export PATH=$PATH:/home/lovepreet/bin
-
 if [ -f ~/azure_environment.sh ] 
 then
     source ~/azure_environment.sh
@@ -88,26 +79,3 @@ unsetopt BEEP
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
- 
-
- 
-
- 
-
- 
-
- 
- 
- 
-
- 
- 
-
- 
- 
- 
- 
-export PATH=/Users/pdotl/repo/awssume/bin:$PATH
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

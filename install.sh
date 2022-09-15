@@ -48,4 +48,3 @@ nvim +'PlugInstall --sync'
 # vim -Es -u $HOME/.vimrc -c "PlugInstall | qa"
 
 sudo chsh -s "$(which zsh)" "$(whoami)"
-

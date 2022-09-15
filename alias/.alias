@@ -5,14 +5,15 @@ alias wcl="wc -l"
 alias wcw="wc -w"
 alias ll="ls -haltr"
 alias datef='date +"%Y%m%d_%H%M%S"'
-alias date_ams='TZ=":Europe/Amsterdam" date' 
 alias tellmewhendone="notify-send -a 'Terminal Task' 'Done' \"In: `tty`\"; aplay ~/Music/notifsound.wav"
 alias tailf='tail -f'
+
 # Functions
 
 # Convert unix timestamp to human readable date
 function date_u2h { date --date="@$1"; }
 function passgen  { openssl rand -base64 18 ; }
+
 # Get current timestamp
 timestamp() {
       date +"%s"

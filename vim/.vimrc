@@ -24,14 +24,6 @@ command! MakeTags !ctags -R .
 let mapleader = ','
 let maplocalleader = '\'
 
-" File browsing
-let g:netrw_banner=0
-let g:netrw_browse_split=4
-let g:netrw_altv=1
-let g:netrw_liststyle=3
-let g:netrw_list_hide=netrw_gitignore#Hide()
-let g:netrw_list_hide.=',\(^\|\s\s)\zs\.\S\+'
-
 " The default 20 isn't nearly enough
 set history=200
 
@@ -167,18 +159,12 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin()
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
-Plug 'srcery-colors/srcery-vim'
-Plug 'OmniSharp/omnisharp-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'dense-analysis/ale'
 call plug#end()
 
 " NERDTree
 map <F3> :NERDTreeToggle<CR>
-
-" Colorscheme
-" colorscheme srcery
 
 " fzf mappings
 " Mapping selecting mappings
@@ -194,18 +180,3 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " Fzf file search
 map  <c-p> :GFiles<CR>
 map  <c-f> :Files<CR>
-
-" Omnisharp mappings
-autocmd FileType cs nmap <silent> gd :OmniSharpGotoDefinition<CR>
-autocmd FileType cs nnoremap <buffer> <Leader>fu :OmniSharpFindUsages<CR>
-autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
-autocmd FileType cs nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
-" Tab for code completion except when newline or space
-inoremap <expr> <Tab> pumvisible() ? '<C-n>' :
-\ getline('.')[col('.')-2] =~# '[[:alnum:].-_#$]' ? '<C-x><C-o>' : '<Tab>'
-autocmd FileType cs nnoremap <C-o><C-u> :OmniSharpFindUsages<CR>
-autocmd FileType cs nnoremap <C-o><C-i> :OmniSharpFindImplementations<CR>
-autocmd FileType cs nnoremap <C-o><C-d> :OmniSharpGotoDefinition<CR>
-autocmd FileType cs nnoremap <C-o><C-d><C-p> :OmniSharpPreviewDefinition<CR>
-" autocmd FileType cs nnoremap <C-o><C-r> :!dotnet run
-autocmd FileType cs nnoremap <C-o><C-a> :OmniSharpGetCodeActions<CR>
