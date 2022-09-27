@@ -161,22 +161,41 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+" Experimental
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"Plug 'puremourning/vimspector'
+Plug 'prettier/vim-prettier', { 'do': 'npm install' , 'branch' : 'release/1.x' }
+Plug 'dense-analysis/ale'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " NERDTree
 map <F3> :NERDTreeToggle<CR>
 
+"
 " fzf mappings
+"
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
-xmap <leader><tab> <plug>(fzf-maps-x)
+map <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
-
 " Insert mode completion
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-l> <plug>(fzf-complete-line)
-
 " Fzf file search
 map  <c-p> :GFiles<CR>
 map  <c-f> :Files<CR>
+
+" Let's give Omnisharp another shot
+autocmd FileType cs nmap <silent> gd :OmniSharpGotoDefinition<CR>
+autocmd FileType cs nnoremap <buffer> <Leader>fu :OmniSharpFindUsages<CR>
+autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
+autocmd FileType cs nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
+
+let g:ale_linters = {
+\ 'cs': ['OmniSharp']
+\}
