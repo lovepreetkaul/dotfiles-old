@@ -142,6 +142,12 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType lua,ruby set tabstop=2
 autocmd FileType lua,ruby set shiftwidth=2
 
+
+" Terminal mode (neovim)
+if has('nvim')
+    tnoremap <Esc> <C-\><C-n>
+    tnoremap <C-v><Esc> <Esc>
+endif
 "
 " Plugins using Vim-plug
 "
@@ -199,3 +205,4 @@ autocmd FileType cs nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
 let g:ale_linters = {
 \ 'cs': ['OmniSharp']
 \}
+
