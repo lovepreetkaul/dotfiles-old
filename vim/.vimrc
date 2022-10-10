@@ -169,6 +169,7 @@ Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-obsession'
 " Experimental
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'flazz/vim-colorschemes'

@@ -79,8 +79,7 @@ fi
 
 unsetopt BEEP
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+    export PS1="#>>"
+fi
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
