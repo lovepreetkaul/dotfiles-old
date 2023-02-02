@@ -42,6 +42,7 @@ fi
 stow -vSt $HOME vim
 stow -vSt $dir nvim
 stow -vSt $HOME zsh
+stow -vSt $HOME tmux
 
 nvim +'PlugInstall --sync' 
 
