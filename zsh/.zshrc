@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 #
 # Global fixes
 #
@@ -48,7 +46,7 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Load the theme.
-antigen theme wezm
+# antigen theme wezm
 
 # Tell antigen that you're done.
 antigen apply
@@ -83,3 +81,5 @@ if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
     export PS1="#>>"
 fi
 
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
