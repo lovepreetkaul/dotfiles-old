@@ -9,8 +9,8 @@ set -x
 #source_dir=$(mktemp -d)
 
 echo "===> Installing prequisites"
-sudo apt update >&3 2>&1
-sudo apt-get install --no-install-recommends -y stow ripgrep ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen >&3 2>&1
+sudo apt update 2>&1
+sudo apt-get install --no-install-recommends -y stow ripgrep ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen  2>&1
 
 #echo "===> Cloning neovim"
 #pushd "$source_dir" &>/dev/null
